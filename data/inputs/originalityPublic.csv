@@ -1,0 +1,17 @@
+repo,average_originality
+argotorg/solidity,0.80
+blockscout/blockscout,0.60
+cyfrin/aderyn,0.80
+defillama/defillama-adapters,0.90
+edb-rs/edb,0.60
+erigontech/erigon,0.90
+ethereum/eips,0.575
+ethereum/go-ethereum,0.875
+ethereum/web3.py,0.80
+ethpandaops/ethereum-package,0.95
+foundry-rs/foundry,0.70
+hyperledger-web3j/web3j,0.70
+openzeppelin/openzeppelin-contracts,0.725
+remix-project-org/remix-project,0.95
+sigp/lighthouse,0.90
+succinctlabs/sp1,0.525

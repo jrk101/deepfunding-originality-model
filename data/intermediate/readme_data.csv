@@ -1,0 +1,2071 @@
+repo_url,readme_found,readme_excerpt
+https://github.com/ethpandaops/checkpointz,True,"Checkpointz
+
+Checkpointz simplifies the process of running an Ethereum Beacon Chain checkpoint sync endpoint.
+
+> :warning: Checkpointz is still in heavy development. Use with caution. Using with a beacon node that is attached to a validator is currently not recommended.
+
+Contents
+Features
+What is checkpoint sync?
+Supported Beacon clients
+Usage
+Configuration
+Simple example
+Full mode
+Disabled frontend
+Full example
+Getting Started
+Download a release
+Docker
+Images
+Kubernetes via Helm
+Grafana
+Contributing
+Running locally
+Backend
+Frontend
+Contact
+
+Features
+Operating mode:
+- The default mode of operation. Provides enough data for users to use your instance to verify the state they got from somewhere else.
+- Provides all the functionality of mode, with the additional ability to serve state request"
+https://github.com/argotorg/act,True,"Act
+
+Act is a formal specification language for constructing exhaustive, mathematically rigorous descriptions of EVM smart contracts.
+
+Act specifications are written in a high-level, human-readable language that can be proved equivalent to EVM bytecode, currently via the hevm symbolic execution engine.
+
+Specifications can be extracted to a proof assistant (currently Rocq), accurately modeling contract behavior as a state transition system and enabling verification of complex properties and invariants.
+
+The core vision of Act is to provide a provably correct mapping from EVM bytecode to a high-level mathematical model that can be embedded into a variety of analysis and verification tools.
+
+In-depth documentation is available in The Act Book.
+
+Act builds on the previous Act project.
+
+Buildin"
+https://github.com/ethdebug/format,True,"ethdebug format
+
+Because debugging on Ethereum is hard.
+
+Problem statement
+
+Smart contracts offer the fundamental promise that code execution is verifiably
+transparent. Not only is this necessary to ensure network liveness,
+but this ability to directly observe the step-by-step operation of the
+Ethereum Virtual Machine (EVM) affords a foundation for public trust amongst
+software developers, auditors, and end-users at large.
+
+Unfortunately, direct observation of the EVM fails to connect
+low-level system behavior with any code authors' original framework of
+meaning. Humans usually write programs in high-level languages that they must
+compile to a form the machine can execute. It is
+extremely impractical to reason about the machine-code that compilers
+output and the system behavior that result"
+https://github.com/powdr-labs/powdr,True,"powdr
+
+> WARNING: This codebase is experimental and has not been audited. DO NOT USE FOR PRODUCTION!
+
+If you have any questions or want to contribute, feel free to write us in our Matrix Chat.
+
+powdr provides state-of-the-art performance and security to zkVMs, enhancing them with compiler-based techniques including static analysis and formal verification.
+
+The main components are:
+Autoprecompiles: automated synthesis of guest-specific precompiles.
+Constraint Solver: compile-time solver used to detect potential optimizations and security issues.
+powdr-OpenVM: powdr extensions for OpenVM.
+
+powdr-legacy
+
+The previous versions of powdr are now archived in the powdr-legacy repository.
+It contains all previous crates regarding provers, powdr-asm, powdr-pil, powdrVM, stdlib circuits and RISC-V su"
+https://github.com/evmts/tevm-monorepo,True,"Tevm 
+
+ JavaScript-Native Ethereum Virtual Machine 
+
+Note: we are near the end of a large rewrite to zig. It is expected we get a new stable version of Tevm in November
+
+🚀 The EVM for TypeScript, JavaScript, and the Modern Web
+
+Tevm puts an Ethereum node anywhere JavaScript runs—Node, browser, serverless, edge, or desktop. Instantly fork mainnet, simulate complex contracts, and run full-stack devnets, all with TypeScript-first safety and blazing speed.
+
+If you use viem, wagmi, 0x, or build modern Ethereum apps, Tevm is the engine that powers next-level shipping, testing, and UX.
+
+✨ Why Tevm?
+⚡ Ship at Lightspeed: Instant feedback. Test and deploy with no wait, no Docker, no slow subprocesses. Build and iterate like the Rust and Go elite—now in JS.
+🚫 Goodbye, Loading Spinners: Deliver real"
+https://github.com/TrueBlocks/trueblocks-core,True,"⚠️ If you have an installation earlier than v6.0.0, complete applicable Migrations before proceeding.
+
+ TrueBlocks / Unchained Index 
+
+Table of Contents
+⚠️ If you have an installation earlier than v6.0.0, complete applicable Migrations before proceeding.
+Introduction
+Installing
+Command line
+Chifra Serve
+Troubleshooting
+The unchained index
+Docker version
+Documentation
+Linting
+Contributing
+Contact
+List of Contributors
+
+Introduction
+
+TrueBlocks improves access to blockchain data for EVM-compatible chains (particularly Ethereum mainnet) while remaining entirely local.
+
+Features:
+and which builds the Unchained Index, an index of address appearances that provides lightning-fast access to transactional histories,
+An optional binary cache, which speeds up queries to the RPC by orders of magnitude,"
+https://github.com/shazow/whatsabi,True,"WhatsABI
+
+Guess an ABI and detect proxies from an Ethereum bytecode, even if it's unverified.
+
+WhatsABI is perfect for building procedural frontends, embedding in wallets, block explorers, or doing bytecode analysis.
+
+🤝 Used by Otterscan, Sourcify, Ondora, Rivet, and more great projects.
+
+Features
+
+What can WhatsABI do?
+Return selectors from bytecode.
+Look up function signatures from selectors.
+Helpers for looking up ABI and signatures from public databases (like Sourcify, Etherscan, Blockscout, OpenChain, 4Byte).
+✨ Resolve proxy contracts!
+Small bundle (less than 15 KB) that works with Ethers.js, Viem, and others.
+
+WhatsABI is different from other EVM analysis tools in some important ways:
+Built in Typescript with minimal dependencies, so that it is runnable in the browser and embeddable"
+https://github.com/chainsafe/lodestar,True,"Lodestar Ethereum Consensus Implementation
+
+Lodestar is a TypeScript implementation of the Ethereum Consensus specification developed by ChainSafe Systems.
+
+Getting started
+:gear: Follow the instructions for build from source, binaries, or Docker to install Lodestar. Or use our Lodestar Quickstart scripts.
+:books: Use Lodestar libraries in your next Ethereum Typescript project.
+:globewithmeridians: Run a beacon node on mainnet or a public testnet.
+:computer: Utilize the whole stack by starting a local testnet.
+:spiral_notepad: View the Lodestar CLI commands and options.
+:nerd_face: View the Package and dependency structure.
+:memo: Prospective contributors can read the contributing section to understand how we develop and test on Lodestar.
+:writing_hand: If you have questions submit an issu"
+https://github.com/erigontech/silkworm,True,"Silkworm - C++ Ethereum Execution Client
+
+C++ implementation of the [Ethereum] Execution Layer (EL) protocol based on the [Erigon architecture].
+
+Table of Contents
+About Silkworm
+About Silkworm for Erigon, aka Erigon++
+Obtaining Source Code
+Building on Linux & macOS
+Building on Windows
+Testing Silkworm
+Contributing
+License
+
+About Silkworm
+
+Silkworm is a greenfield C++ implementation of the Ethereum protocol based on the [Erigon architecture].
+It aims to be the fastest Ethereum client while maintaining the high quality and readability of its source code.
+Silkworm uses [libmdbx] as the database engine.
+
+Silkworm was conceived as an evolution of the [Erigon] project, as outlined in its release commentary.
+
+Silkworm is under active development and hasn't reached the alpha phase yet.
+Hence, the"
+https://github.com/ethpandaops/ethereum-helm-charts,True,"Ethereum Helm Charts
+
+A set of Helm charts to run multiple components of the Ethereum blockchain on Kubernetes.
+
+Deployment examples that use these helm charts can be found under ethpandaops/ethereum-k8s-testnets.
+
+Usage
+
+Helm must be installed to use the charts. Please refer to
+Helm's documentation to get started.
+
+Once Helm has been set up correctly, add the repo as follows:
+
+If you had already added this repo earlier, run to retrieve
+the latest versions of the packages. You can then run the following command to see the charts.
+
+To install the ethstats chart:
+
+To uninstall the chart:
+
+List of charts
+
+Execution layer clients
+
+Consensus layer clients
+
+Generic
+- Umbrella chart that uses the execution and consensus layer client charts.
+
+Tooling
+- A prometheus exporter for Ethereum validator"
+https://github.com/DefiLlama/DefiLlama-Adapters,True,"Defillama Adapters
+
+Follow this guide to create an adapter and submit a PR with it.
+
+Also, don't hesitate to send a message on our discord if we're late to merge your PR.
+
+> If you would like to add a adapter please submit the PR here
+> - If you would like to add a adapter, please refer to this readme document for details.
+
+1. PLEASE PLEASE enable ""Allow edits by maintainers"" while putting up the PR.
+2. Once your adapter has been merged, it takes time to show on the UI. No need to notify us on Discord.
+3. TVL must be computed from blockchain data (reason: if you have trouble with creating the adapter, please hop onto our discord, we are happy to assist you.
+4. For updating listing info It is a different repo, you can find your listing in this file: you can edit it there and put up a PR
+5."
+https://github.com/blockscout/blockscout,True,"Blockscout 
+ Blockchain Explorer for inspecting and analyzing EVM Chains. 
+
+Blockscout provides a comprehensive, easy-to-use interface for users to view, confirm, and inspect transactions on EVM (Ethereum Virtual Machine) blockchains. This includes Ethereum Mainnet, Ethereum Classic, Optimism, Gnosis Chain and many other Ethereum testnets, private networks, L2s and sidechains.
+
+See our project documentation for detailed information and setup instructions.
+
+For questions, comments and feature requests see the discussions section or via Discord.
+
+About Blockscout
+
+Blockscout allows users to search transactions, view accounts and balances, verify and interact with smart contracts and view and interact with applications on the Ethereum network including many forks, sidechains, L2s and testnets"
+https://github.com/argotorg/hevm,True,"hevm
+hevm is an implementation of the Ethereum virtual machine (EVM) made for
+symbolic execution, equivalence checking, and (symbolic) unit testing of smart
+contracts. can symbolically execute smart contracts, perform symbolic
+equivalence testing, and run arbitrary EVM code. In particular, it can run
+Forge test suites in a
+symbolic way, thereby being much more thorough than fuzz testing.
+
+Documentation & Support
+User facing documentation can be found in the hevm book.
+We have a public matrix chat room
+here.
+
+Installing via Static Binaries
+Static binaries for x86 linux and macos are available for each
+release. These binaries expect to have installed.
+You can install via your package manager, such as on Ubuntu,
+or on macOS.
+
+Quick User Guide for a Forge Project
+For a Forge project, you can r"
+https://github.com/wevm/viem,True,"[!IMPORTANT] -->
+ Viem is participating in Gitcoin Grants round 21. Consider supporting the project . Thank you. 🙏 -->
+
+ TypeScript Interface for Ethereum
+
+Features
+Abstractions over the JSON-RPC API to make your life easier
+First-class APIs for interacting with Smart Contracts
+Language closely aligned to official Ethereum terminology
+Import your Browser Extension, WalletConnect or Private Key Wallet
+Browser native BigInt, instead of large BigNumber libraries
+Utilities for working with ABIs (encoding/decoding/inspection)
+TypeScript ready (infer types from ABIs and EIP-712 Typed Data)
+First-class support for Anvil, Hardhat & Ganache
+Test suite running against forked Ethereum network
+
+... and a lot more.
+
+Overview
+
+Documentation
+
+Head to the documentation to read and learn more about viem."
+https://github.com/vyperlang/vyper,True,"Getting Started
+See Installing Vyper to install vyper.
+See Tools and Resources for an additional list of framework and tools with vyper support.
+See Documentation for the documentation and overall design goals of the Vyper language.
+
+See learn.vyperlang.org for learning Vyper by building a Pokémon game.
+See try.vyperlang.org to use Vyper in a hosted jupyter environment!
+
+Note: Vyper is constantly evolving, use with care and understand the risks associated with smart contract development.
+
+Installation
+See the Vyper documentation
+for build instructions.
+
+Compiling a contract
+To compile a contract, use:
+
+generate bytecode
+
+ vyper -f bytecode file-name.vy > file-name.bin
+
+generate abi
+
+ vyper -f abi file-name.vy > file-name.abi
+
+There is also an online compiler available you can use to experi"
+https://github.com/vyperlang/titanoboa,True,"Titanoboa
+
+A Vyper interpreter with pretty tracebacks, forking, debugging features and more! Titanoboa's goal is to provide a modern, advanced and integrated development experience for vyper users.
+
+Architecture
+
+Titanoboa achieves feature parity with the vyper compiler while providing an interpreted experience. How does it do this? Internally, titanoboa uses vyper as a library to compile source code to bytecode, and then runs the bytecode using py-evm, adding instrumenting hooks to provide introspection. The use of means that the entire experience is highly configurable, down to the ability to patch opcodes and precompiles at the EVM level.
+
+Documentation
+
+Usage and quickstart are below. For more detailed documentation, please see the documentation.
+
+Installation
+
+For latest dev version:"
+https://github.com/status-im/nimbus-eth2,True,"Nimbus Eth2 (Beacon Chain)
+
+Nimbus-eth2 is an extremely efficient consensus layer (eth2) client implementation. While it's optimised for embedded systems and resource-restricted devices -- including Raspberry Pis, its low resource usage also makes it an excellent choice for any server or desktop (where it simply takes up fewer resources).
+Documentation
+Quickly test your tooling against Nimbus
+Migrate from another client
+Related projects
+Donations
+Branch guide
+Developer resources
+Tooling and utilities
+For researchers
+Block simulation
+Local network simulation
+Visualising simulation metrics
+CI setup
+License
+
+Documentation
+
+You can find the information you need to run a beacon node and operate as a validator in The Book.
+
+The Quickstart in particular will help you quickly connect to either mai"
+https://github.com/scaffold-eth/scaffold-eth-2,True,"🏗 Scaffold-ETH 2
+
+ Documentation |
+ Website 
+
+🧪 An open-source, up-to-date toolkit for building decentralized applications (dapps) on the Ethereum blockchain. It's designed to make it easier for developers to create and deploy smart contracts and build user interfaces that interact with those contracts.
+
+> [!NOTE]
+> 🤖 Scaffold-ETH 2 is AI-ready! It has everything agents need to build on Ethereum. Check , , or for more info.
+
+⚙️ Built using NextJS, RainbowKit, Foundry/Hardhat, Wagmi, Viem, and Typescript.
+✅ Contract Hot Reload: Your frontend auto-adapts to your smart contract as you edit it.
+🪝 Custom hooks: Collection of React hooks wrapper around wagmi to simplify interactions with smart contracts with typescript autocompletion.
+🧱 Components: Collection of common web3 components to quickly"
+https://github.com/OffchainLabs/prysm,True,"Prysm: An Ethereum Consensus Implementation Written in Go 
+
+📖 Overview
+
+This is the core repository for Prysm, a Golang implementation of the Ethereum Consensus specification, developed by Offchain Labs.
+
+See the Changelog for details of the latest releases and upcoming breaking changes.
+
+🚀 Getting Started
+
+A detailed set of installation and usage instructions as well as breakdowns of each individual component are available in the official documentation portal.
+
+💬 Need help? Join our Discord Community for support.
+
+🏆 Staking on Mainnet
+
+To participate in staking, you can join the official Ethereum launchpad. The launchpad is the only recommended way to become a validator on mainnet.
+
+🔍 Explore validator rewards/penalties:
+beaconcha.in
+beaconscan
+
+🤝 Contributing
+
+🔥 Branches
+
+Prysm maintains"
+https://github.com/safe-global/safe-smart-account,True,"Safe Smart Account
+
+> [!WARNING]
+> This branch contains changes that are under development. To use the latest audited version, make sure to use the correct commit. The tagged versions that are used by the Safe team can be found in the releases.
+
+Usage
+
+Install requirements with npm:
+
+Testing
+
+To run the tests:
+
+Optionally, if you want to run the ERC-4337 compatibility test, it uses a live bundler and node, so it contains some prerequisites:
+
+1. Define the environment variables:
+
+2. Pre-fund the executor account derived from the mnemonic with some Native Token to cover the deployment of an ERC-4337 module and the pre-fund of the Safe for the test operation.
+
+Deployments
+
+A collection of the different Safe contract deployments and their addresses can be found in the Safe deployments reposito"
+https://github.com/paradigmxyz/reth,True,"reth
+
+[ ][gh-ci]
+[ ][gh-lint]
+][tg-url]
+
+Modular, contributor-friendly and blazing-fast implementation of the Ethereum protocol
+
+Install
+| User Docs
+| Developer Docs
+| Crate Docs
+
+[gh-ci]: 
+[gh-lint]: 
+[tg-badge]: 
+
+> Note: OP-Reth has moved
+>
+> The Optimism (op-reth) crates have been moved to ethereum-optimism/optimism.
+> Git contribution history has been preserved. If you are looking for op-reth, please see the new repository.
+
+What is Reth?
+
+Reth (short for Rust Ethereum, pronunciation) is a new Ethereum full node implementation that is focused on being user-friendly, highly modular, as well as being fast and efficient. Reth is an Execution Layer (EL) and is compatible with all Ethereum Consensus Layer (CL) implementations that support the Engine API. It is originally built and driven f"
+https://github.com/openzeppelin/openzeppelin-contracts,True,"A library for secure smart contract development. Build on a solid foundation of community-vetted code.
+Implementations of standards like ERC20 and ERC721.
+Flexible role-based permissioning scheme.
+Reusable Solidity components to build custom contracts and complex decentralized systems.
+
+:mage: Not sure how to get started? Check out Contracts Wizard — an interactive smart contract generator.
+
+> [!IMPORTANT]
+> OpenZeppelin Contracts uses semantic versioning to communicate backwards compatibility of its API and storage layout. For upgradeable contracts, the storage layout of different major versions should be assumed incompatible, for example, it is unsafe to upgrade from 4.9.3 to 5.0.0. Learn more at Backwards Compatibility.
+
+Overview
+
+Release tags
+
+We use NPM tags to clearly distinguish bet"
+https://github.com/nomicfoundation/hardhat,True,"Hardhat is an Ethereum development environment for professionals. It facilitates performing frequent tasks, such as running tests, automatically checking code for mistakes or interacting with smart contracts.
+
+Built by the Nomic Foundation for the Ethereum community.
+
+> 💡 This is the README for Hardhat 3, the new major version of Hardhat. For the previous version (v2), see this branch instead.
+
+Getting started
+
+To install Hardhat and initialize a new project, run the following command in an empty directory:
+
+This will take you through an interactive setup process to get started.
+
+Learn more
+
+To learn more about Hardhat, check out the documentation.
+
+Contributing
+
+Contributions are always welcome! Feel free to open any issue or send a pull request.
+
+Go to CONTRIBUTING.md to learn about how"
+https://github.com/nethermindeth/nethermind,True,"Nethermind Ethereum client
+
+Nethermind is an Ethereum execution client built on .NET. Nethermind is the fastest client in terms of throughput, block processing, transactions per second (TPS), and syncing new nodes. With its modular design and plugin system, it offers extensibility and features for new chains. As one of the most adopted execution clients on Ethereum, Nethermind plays a crucial role in enhancing the diversity and resilience of the Ethereum ecosystem.
+
+Documentation
+
+Nethermind documentation is available at docs.nethermind.io.
+
+Supported networks
+
+Ethereum · Gnosis · Optimism · Base · Taiko · World Chain · Linea · Energy Web
+
+Installing
+
+The standalone release builds are available on GitHub Releases.
+
+Package managers
+Linux
+
+ On Debian-based distros, Nethermind can be install"
+https://github.com/nethereum/nethereum,True,"Nethereum
+
+Nethereum is the .NET integration platform for Ethereum and EVM-compatible blockchains. It provides a complete development stack — from smart contract interaction and transaction signing, through a full EVM simulator and in-process Ethereum node, to blockchain data indexing, an ERC-4337 account abstraction bundler, a Blazor blockchain explorer, MUD framework support, multi-platform wallet UIs, Unity game integration, and .NET Aspire orchestration. Nethereum targets netstandard 2.0 through .NET 10, .NET Framework 4.5.1+, and Unity, running on Windows, Linux, macOS, Android, iOS, WebAssembly, and game consoles.
+
+Try Nethereum in Your Browser
+
+Go to playground.nethereum.com to browse and execute samples directly in your browser — no setup required.
+
+Quick Start
+
+Get an account bala"
+https://github.com/hyperledger-web3j/web3j,True,"Web3j: Web3 Java Ethereum Dapp API
+==================================
+
+Web3j is a lightweight, highly modular, reactive, type safe Java and
+Android library for working with Smart Contracts and integrating with
+clients (nodes) on the Ethereum network:
+
+This allows you to work with the Ethereum
+blockchain, without the additional overhead of having to write your own
+integration code for the platform.
+
+The Java and the Blockchain talk provides
+an overview of blockchain, Ethereum and Web3j.
+
+NEW! Get involved!
+
+Since Web3J moved under Hyperledger we started to do Web3J Contributors calls every 2 weeks!
+Subscribe to our community page and to see check our call schedule.
+Your contribution matters!
+Community Link - Check our last updates! 
+Calendar Invite - Add the contributor call to your calenda"
+https://github.com/grandinetech/grandine,True,"Grandine: A fast and lightweight Ethereum consensus client
+
+Documentation
+
+The documentation is available here. Feel free to reach us if you would like more details in some documentation chapters or have any questions.
+
+Performance
+
+Grandine is a optimised and parallelised client. There aren't many published performance comparisons, but a previous research by MigaLabs may give some insight. We run 50,000 Holesky validators on one of our developer's machine.
+
+Memory Usage
+
+Grandine is a lightweight client and needs only ~2.5GB of memory on the mainnet. In order to measure the amount of memory that Grandine actually needs one should stress the operating system to release the shared memory. is an easy way to do it:
+
+Build
+
+Rust is needed in order to build Grandine. We recommend to use rustup."
+https://github.com/foundry-rs/foundry,True,"&nbsp;
+
+][gha-url] ][tg-url] ][tg-support-url]
+
+[gha-badge]: 
+[gha-url]: 
+[tg-badge]: 
+[tg-url]: 
+[tg-support-badge]: 
+[tg-support-url]: 
+
+Install
+| [Docs][foundry-docs]
+| Benchmarks
+| Developer Guidelines
+| Contributing
+| Crate Docs
+
+Blazing fast, portable and modular toolkit for Ethereum application development, written in Rust.
+Forge — Build, test, fuzz, debug and deploy Solidity contracts.
+Cast — Swiss Army knife for interacting with EVM smart contracts, sending transactions and getting chain data.
+Anvil — Fast local Ethereum development node.
+Chisel — Fast, utilitarian and verbose Solidity REPL.
+
+Installation
+
+See the installation guide for more details.
+
+Getting Started
+
+Initialize a new project, build and test:
+
+Interact with a live network:
+
+Fork mainnet locally:
+
+Read the [Foundry"
+https://github.com/ethers-io/ethers.js,True,"The Ethers Project
+==================
+
+A complete, compact and simple library for Ethereum and ilk, written
+in TypeScript.
+
+Features
+Keep your private keys in your client, safe and sound
+Import and export JSON wallets (Geth, Parity and crowdsale)
+Import and export BIP 39 mnemonic phrases (12 word backup phrases) and HD Wallets (English as well as Czech, French, Italian, Japanese, Korean, Simplified Chinese, Spanish, Traditional Chinese)
+Meta-classes create JavaScript objects from any contract ABI, including ABIv2 and Human-Readable ABI
+Connect to Ethereum nodes over JSON-RPC, INFURA, Etherscan, Alchemy, Ankr or MetaMask
+ENS names are first-class citizens; they can be used anywhere an Ethereum addresses can be used
+Small (~144kb compressed; 460kb uncompressed)
+Tree-shaking focused; include"
+https://github.com/argotorg/sourcify,True,"&nbsp;
+
+ &nbsp;
+
+Sourcify (sourcify.dev) is a source-code verification service for Ethereum smart contracts supporting Solidity and Vyper. Sourcify is fully commited to
+Open-source (MIT License)
+Open-data (see Downloading the repository)
+Open-standards (see the Verifier Alliance)
+
+in smart-contract verification instead of siloed, propriety services. We foster these values across the ecosystem and work actively to push the status-quo in this direction.
+
+Different than other verification services, Sourcify leverages the Solidity metadata and its integrity hash to ""fully verify"" the Solidity contracts (see the playground).
+
+Sourcify mainly consists of:
+sourcify-server - an HTTP server to run source-code verifications and store the verified contracts for the supported chains through an API
+sou"
+https://github.com/argotorg/solidity,True,"The Solidity Contract-Oriented Programming Language
+
+You can talk to us on Gitter and Matrix, tweet at us on X (previously Twitter) or create a new topic in the Solidity forum. Questions, feedback, and suggestions are welcome!
+
+Solidity is a statically-typed, contract-oriented, high-level language for implementing smart contracts on the Ethereum platform.
+
+For a good overview and starting point, please check out the official Solidity Language Portal.
+
+Table of Contents
+Background
+Build and Install
+Example
+Documentation
+Development
+Maintainers
+License
+Security
+
+Background
+
+Solidity is a statically-typed curly-braces programming language designed for developing smart contracts
+that run on the Ethereum Virtual Machine. Smart contracts are programs that are executed inside a peer-to-peer
+netwo"
+https://github.com/remix-project-org/remix-project,True,"Remix Project 
+
+Remix Project
+
+Remix Project is a rich toolset including Remix IDE, a comprehensive smart contract development tool. The Remix Project also includes Remix Plugin Engine and Remix Libraries which are low-level tools for wider use. 
+
+Remix IDE
+Remix IDE is used for the entire journey of contract development by users of any knowledge level. It fosters a fast development cycle and has a rich set of plugins with intuitive GUIs. The IDE comes in 2 flavors and a VSCode extension:
+
+Remix Online IDE, see: 
+
+:point_right: Supported browsers: Firefox v100.0.1 & Chrome v101.0.4951.64. No support for Remix's use on tablets or smartphones or telephones.
+
+Remix Desktop IDE, see releases: 
+
+Remix libraries 
+Remix libraries are essential for Remix IDE's native plugins. Read more about libra"
+https://github.com/ethereum/go-ethereum,True,"Go Ethereum
+
+Golang execution layer implementation of the Ethereum protocol.
+
+![API Reference](
+
+Automated builds are available for stable releases and the unstable master branch. Binary
+archives are published at 
+
+Building the source
+
+For prerequisites and detailed build instructions please read the Installation Instructions.
+
+Building requires both a Go (version 1.23 or later) and a C compiler. You can install
+them using your favourite package manager. Once the dependencies are installed, run
+
+or, to build the full suite of utilities:
+
+Executables
+
+The go-ethereum project comes with several wrappers/executables found in the 
+directory.
+
+Running 
+
+Going through all the possible command line flags is out of scope here (please consult our
+CLI Wiki page),
+but we've enumerated a few common pa"
+https://github.com/argotorg/fe,True,"Fe
+
+The Fe compiler is in the late stages of a major compiler rewrite. The branch supports / and includes an experimental for EVM bytecode generation (default backend: Sonatina), but language/codegen coverage is still evolving.
+For the older version of the compiler, see the legacy branch.
+
+Overview
+
+Fe is a statically typed language for the Ethereum Virtual Machine (EVM). The syntax and type system is similar to rust's, with the addition of higher-kinded types. We're exploring additional type system, syntax, and semantic changes.
+
+Debugging tests
+
+ has a few flags that are useful when debugging runtime/codegen issues:
+EVM trace (last 400 steps): 
+Sonatina symtab + stackify traces written to files: 
+
+Community
+Twitter: @official_fe
+Chat:
+We've recently moved to Zulip
+The Discord server is s"
+https://github.com/ethereum/execution-apis,True,"Execution API Specification
+
+JSON-RPC
+
+[View the spec][playground]
+
+The Ethereum JSON-RPC is a standard collection of methods that all execution
+clients implement. It is the canonical interface between users and the network.
+This interface allows downstream tooling and infrastructure to treat different
+Ethereum clients as modules that can be swapped at will.
+
+Contributing
+
+Please see
+CONTRIBUTING.md
+for a concise workflow overview, and the [contributors guide][contributors-guide]
+for the full process of standardizing new API methods and making changes to
+existing ones. Information on test generation can be found in
+[test-gen][test-gen].
+
+The specification itself is written in [OpenRPC][openrpc]. Refer to the OpenRPC
+specification and the JSON schema [specification][json-schema] to get star"
+https://github.com/ethereum/eips,True,"Ethereum Improvement Proposals (EIPs)
+
+> ATTENTION: The EIPs repository has recently undergone a separation of ERCs and EIPs. ERCs are now accessible at All new ERCs and updates to existing ones must be directed at this new repository. The editors apologize for this inconvenience.
+
+The goal of the EIP project is to standardize and provide high-quality documentation for Ethereum itself and conventions built upon it. This repository tracks past and ongoing improvements to Ethereum in the form of Ethereum Improvement Proposals (EIPs). EIP-1 governs how EIPs are published.
+
+The status page tracks and lists EIPs, which can be divided into the following categories:
+Core EIPs are improvements to the Ethereum consensus protocol.
+Networking EIPs specify the peer-to-peer networking layer of Ethereum"
+https://github.com/ethereum-lists/chains,True,"EVM-based Chains
+
+The source data is in _data/chains. Each chain has its own file with the filename being the CAIP-2 representation as name and as extension.
+
+Example:
+
+When an icon is used in either the network or an explorer, there must be a JSON in _data/icons with the name used.
+(e.g. in the above example there must be a and a in there) - The icon JSON files look like this:
+
+where:
+The URL MUST be publicly resolvable through IPFS
+width and height MUST be positive integers
+format is either ""png"", ""jpg"" or ""svg""
+size MUST be less than 250kb
+
+If the chain is an L2 or a shard of another chain you can link it to the parent chain like this:
+
+where you need to specify the type and the reference to an existing parent. The field about bridges is optional.
+
+You can add a field e.g. to deprecate"
+https://github.com/ethereum/consensus-specs,True,"Ethereum Proof-of-Stake Consensus Specifications
+
+This repository hosts the current Ethereum
+proof-of-stake
+specifications. Discussions about design rationale and proposed changes can be
+brought up and discussed as issues. Solidified, agreed-upon changes to the
+specifications can be made through pull requests.
+
+Specifications
+
+Core specifications for Ethereum proof-of-stake clients can be found in
+specs. These are divided into features. Features are researched and
+developed in parallel, and then consolidated into sequential upgrades when
+ready.
+
+Stable specifications
+
+Unstable specifications
+
+Accompanying documents
+SimpleSerialize (SSZ) spec
+Merkle proof formats
+General test format
+
+External specifications
+Beacon APIs
+Engine APIs
+Beacon Metrics
+Builder Specs
+
+Reference tests
+Stable referen"
+https://github.com/erigontech/erigon,True,"CI Guidelines
+
+Workflow triggers
+
+Each workflow should serve a distinct purpose with a distinct trigger pattern. Avoid
+duplicating workflows that fire on the same events — merge them instead.
+
+Trigger ladder (fastest feedback to most comprehensive):
+
+Run tests that developers can reproduce locally as late as possible — ideally only in
+the merge queue. This avoids burning runner time on every push and concentrates
+deterministic blocking checks at the point where they matter most.
+
+All workflows should include so they can be triggered manually
+without code changes. For workflows with inputs (e.g. QA), use dispatch inputs instead
+of separate workflow files.
+
+Draft PRs
+
+If a job uses to skip on draft PRs, the
+workflow must include in its event types:
+
+Without , converting a draft PR to ready-f"
+https://github.com/consensys/teku,True,"teku
+
+ %22&replace=%241&label=consensus-specs)
+
+Teku is an open-source Ethereum consensus client written in Java and containing a full beacon node and validator client implementation.
+
+See the Changelog for details of the latest releases and upcoming breaking changes.
+
+Useful links
+Ethereum Beacon Chain specification
+Teku user documentation
+Teku REST API reference documentation
+Teku issues
+Contribution guidelines
+Teku Changelog
+
+Teku users
+
+See our user documentation.
+
+Raise a documentation issue or get in touch in
+the #teku channel on Discord if you've got questions or feedback.
+
+Teku developers
+Contribution Guidelines
+Coding Conventions
+
+Binary Releases
+
+Binary releases are available from the releases page.
+Binary builds that track the latest changes on the master branch are available on"
+https://github.com/apeworx/ape,True,"][pypi-url]
+][license-url]
+][actions-url]
+][contributing-url]
+][discord-url]
+][twitter-url]
+][deepwiki-url]
+
+Overview
+
+Ape Framework is an easy-to-use Web3 development tool.
+Users can compile, test, and interact with smart contracts all in one command line session.
+With our modular plugin system, Ape supports multiple contract languages and chains.
+
+Ape is built by ApeWorX LTD.
+
+Join our [ApeWorX Discord server][discord-url] to stay up to date on new releases, plugins, and tutorials.
+
+If you want to get started now, see the Quickstart section.
+
+Documentation
+
+Read our technical documentation to get a deeper understanding of our open source Framework.
+
+Read our academic platform which will help you master Ape Framework with tutorials and challenges.
+
+Prerequisite
+
+In the latest release, Ape"
+https://github.com/alloy-rs/alloy,True,"Alloy
+
+Alloy connects applications to blockchains.
+
+Alloy is a rewrite of [ ] from the ground up, with exciting new
+features, high performance, and excellent docs.
+
+We also have a book on all things Alloy and many examples to help you get started.
+
+][telegram-url]
+
+[ ]: 
+[telegram-badge]: 
+[telegram-url]: 
+
+Installation
+
+Alloy consists of a number of crates that provide a range of functionality essential for interfacing with any Ethereum-based blockchain.
+
+The easiest way to get started is to add the crate with the feature flag from the command-line using Cargo:
+
+Alternatively, you can add the following to your file:
+
+For a more fine-grained control over the features you wish to include, you can add the individual crates to your file, or use the crate with the features you need.
+
+A compreh"
+https://github.com/a16z/helios,True,"Helios
+
+Helios is a trustless, efficient, and portable multichain light client written in Rust.
+
+Helios converts an untrusted centralized RPC endpoint into a safe unmanipulable local RPC for its users. It syncs in seconds, requires no storage, and is lightweight enough to run on mobile devices.
+
+Helios has a small binary size and compiles into WebAssembly. This makes it a perfect target to embed directly inside wallets and dapps.
+
+Installing
+
+First install , Helios's installer:
+
+To install Helios, run .
+
+Usage
+Ethereum
+
+To run Helios on Ethereum, run the command below, replacing with an RPC provider URL such as Alchemy:
+
+ must be a supported Ethereum Execution API Provider that provides the endpoint. We recommend using providers like Alchemy or Infura.
+
+Helios will now run a local RPC serv"
+https://github.com/swiss-knife-xyz/swiss-knife,True,"All your EVM tools in one place: 
+
+List of Tools
+
+1. Explorer: Quickly view any address/ens or transaction across a variety explorers, in just a click!
+2. Calldata: Decode or encode calldata. View parameters in a human-readable format, even without the contract ABI.
+3. Transact: Send custom bytes calldata to transact with any contract, or leave the address blank to deploy a new contract.
+4. Converter: All the essential unit converters on one-page. Convert between:
+ 1. Ether, wei & gwei
+ 2. Hexadecimal, decimal & binary
+ 3. String or hex to keccack256 hash & 4 bytes selector
+ 4. Hex to 32 bytes left-padded & right-padded values
+ 5. Address to checksum/lowercase format
+5. Constants: Have frequently used constants at your fingertips, like Zero Address, Max Uint256, etc.
+6. Epoch-Converter: Gr"
+https://github.com/axiom-crypto/snark-verifier,True,"SNARK Verifier
+
+Generic (S)NARK verifier.
+
+Status
+
+As of June 2023, v0.1.1 and later are recommended for production use. It completed external audits conducted by Trail of Bits (available here and here).
+
+Security
+
+See SECURITY.md."
+https://github.com/risc0/risc0-ethereum,True,"> [!IMPORTANT]
+> is the development branch.
+> Application developers should use the latest release instead.
+
+RISC Zero Ethereum
+
+[RISC Zero] is a zero-knowledge verifiable general computing platform, with [Ethereum] integration.
+This repository contains [Solidity verifier contracts][contracts] and supporting code.
+
+If you are looking to get started using RISC Zero in an application on Ethereum, the best place to look is the [Foundry template][template].
+
+You can also find the documentation for RISC Zero, including guides for [writing zkVM programs][risc0-quickstart], [using the Bonsai prover][bonsai-quickstart], and more at [dev.risczero.com].
+
+Contracts
+
+RISC Zero's Ethereum contracts, including the on-chain verifier for all RISC Zero Groth16 proofs, can be found in the [contracts] direct"
+https://github.com/dl-solarity/solidity-lib,True,"Solarity Solidity Library
+
+Solidity contracts and utilities that go far beyond mediocre solidity.
+
+Contracts
+
+Built with courage and aspiration to perfection.
+
+> [!TIP]
+> The library is designed to work cohesively with hardhat-zkit and circom-lib packages.
+
+Installation
+
+The latest stable version is always in the branch.
+
+Documentation
+
+Check out the project's documentation with broad explanations and usage examples of every contract. Full guides are also available in the source code.
+
+Contributing
+
+We are open to any mind-blowing ideas! Please take a look at our contributing guidelines to get involved.
+
+License
+
+The library is released under the MIT License."
+https://github.com/ethstaker/ethstaker-deposit-cli,True,"ethstaker-deposit-cli docs
+
+Documentation
+Introduction
+Quick Setup
+
+Introduction
+
+ is a tool for creating EIP-2335 format BLS12-381 keystores and a corresponding file for Ethereum Staking Launchpad or the Gnosis Beacon Chain deposit UI. One can also provide a keystore file to generate a file to be broadcast at a later date to exit a validator.
+Warning: Please generate your keystores on your own safe, completely offline device.
+Warning: Please backup your mnemonic, keystores, and password securely.
+
+Please read Launchpad Validator FAQs before generating the keys.
+
+The project has been through various security audits over the years. You can find them here:
+March 4, 2026: Security assessment report by Trail of Bits
+December 13, 2024: Security assessment report by Trail of Bits
+September 4, 20"
+https://github.com/OffchainLabs/stylus-sdk-rs,True,"The Stylus SDK 
+
+ Rust contracts on Arbitrum » 
+
+Overview
+
+The Stylus SDK enables smart contract developers to write programs for Arbitrum chains written in the Rust programming language. Stylus programs are compiled to WebAssembly and can then be deployed on-chain to execute alongside Solidity smart contracts. Stylus programs are not only orders of magnitude cheaper and faster but also enable what was thought to be previously impossible for WebAssembly: EVM-interoperability.
+
+For information about deploying Rust smart contracts, see the Cargo Stylus CLI Tool. For more information about Stylus, see Stylus: A Gentle Introduction. For a simpler intro to Stylus Rust development, see the Quick Start guide.
+
+Comprehensive documentation on the Rust SDK can be found here.
+
+Feature highlights
+
+The"
+https://github.com/aestus-relay/mev-boost-relay,True,"MEV-Boost Relay
+
+MEV-Boost Relay for Ethereum proposer/builder separation (PBS).
+
+Currently live at:
+boost-relay.flashbots.net (also on Sepolia, Holesky and Hoodi)
+relay.ultrasound.money, agnostic-relay.net, bloXroute relays (light fork)
+mainnet.aestus.live, relay.edennetwork.io/info, mainnet-relay.securerpc.com
+
+Alternatives (not audited or endorsed): blocknative/dreamboat, manifold/mev-freelay
+
+See also
+Docker images
+mev-boost
+Relay API specs
+Guide for running mev-boost-relay at scale
+Running relay and builders in custom devnets
+More docs
+
+Components
+
+The relay consists of three main components, which are designed to run and scale independently, and to be as simple as possible:
+
+1. API: Services that provide APIs for (a) proposers, (b) block builders, (c) data.
+1. Website: Serving the we"
+https://github.com/succinctlabs/rsp,True,"Reth Succinct Processor (RSP)
+
+RSP is a minimal implementation of generating zero-knowledge proofs of EVM block execution using Reth. Supports both Ethereum and OP Stack.
+
+Docs
+
+Overview
+
+RSP is designed to generate zero-knowledge proofs of EVM block execution using components from Reth and SP1. The system is split between a host CLI that prepares execution data and orchestrates the process, and a client program that runs within a zero-knowledge virtual machine (SP1) to generate proofs.
+
+The repository is organized into the following directories:
+: The documentation for RSP users and developers.
+and : The programs that runs inside the zkVM.
+: The CLI to prepare the proving process.
+: RSP components like the host and client executors
+
+> [!CAUTION]
+>
+> This repository is still an active work"
+https://github.com/edb-rs/edb,True,"EDB: The Ethereum Project Debugger 🔍 
+
+ Source-level time-travel debugger for Ethereum smart contracts 
+
+ Installation •
+ Quickstart •
+ Why EDB? •
+ Sponsors •
+ TG Q&A 
+
+EDB bridges the gap between high-level Solidity code and low-level EVM execution, providing four essential debugging features that have been missing from the Ethereum ecosystem:
+🧭 Step-by-step execution at the source code level 
+🧠 Local variable value inspection 
+🧮 Custom expression evaluation during debug execution
+🎯 Breakpoints & watchpoints for fine-grained control
+
+> ⚠️ Note: EDB is currently under active development. Features and APIs may change as we continue to improve the debugging experience.
+
+ ✨ Time-travel through your Solidity code with a full TUI debugger. 
+
+Installation
+
+Prerequisites
+Ethereum RPC endpoint - P"
+https://github.com/0xMiden/miden-vm,True,"Miden Virtual Machine
+
+A STARK-based virtual machine.
+
+WARNING: This project is in an alpha stage. It has not been audited and may contain bugs and security flaws. This implementation is NOT ready for production use.
+
+WARNING: For , only the and targets are officially supported.
+
+Overview
+
+Miden VM is a zero-knowledge virtual machine written in Rust. For any program executed on Miden VM, a STARK-based proof of execution can be automatically generated. This proof can then be used by anyone to verify that the program was executed correctly without the need for re-executing the program or even knowing the contents of the program.
+
+The Miden VM uses Plonky3 as the proving system, although with some modifications. See the repository for more information.
+
+In the latest stable release, most of t"
+https://github.com/holiman/goevmlab,True,"Go evmlab
+
+This project is inspired by EVMlab, which was
+written in Python. EVMlab featured a minimal ""compiler"", along with some tooling
+to view traces in a UI, and execute scripts against EVMs (parity and geth). 
+
+This is a golang rewrite from scratch of that same project, this time in go-lang to be more stable 
+and nice to use. 
+
+Status
+
+So far, it only contains 
+a minimal ""compiler"", which is not a proper compiler, but it can be used to create EVM bytecode and do some basic higher level operations. 
+Some infrastructure for writing EVM-based fuzzers
+
+Examples
+
+See examples/calltree to get an idea of how to use this
+thing, along with an analysis done using 
+this framework. 
+
+Utilities
+
+There are a few different utilities in this repo, based on this library. 
+
+Tracediff
+
+Tracediff allows"
+https://github.com/Cyfrin/aderyn,True,"A powerful Solidity static analyzer that takes a bird's eye view over your smart contracts.
+
+ Docs 
+ Discord 
+ X/Twitter 
+
+][stars-url] ][forks-url]
+][contributors-url]
+][release-url]
+][issues-url]
+][license-url]
+
+What is Aderyn?
+
+Aderyn is an open-source public good developer tool. It is a Rust-based solidity smart contract static analyzer designed to help protocol engineers and security researchers find vulnerabilities in Solidity code bases.
+
+You can read the Cyfrin official documentation for an in-depth look at Aderyn's functionalities.
+
+There is also an officially supported VSCode extension for Aderyn. Download from the Visual Studio Marketplace and start identifying vulnerabilities in your Solidity 
+code with ease. 
+
+Features
+Runs without need for any configuration support for Foundr"
+https://github.com/Commit-Boost/commit-boost-client,True,"Commit-Boost
+
+A new Ethereum validator sidecar focused on standardizing the last mile of communication between validators and third-party protocols.
+
+Overview
+Commit-Boost is a modular sidecar that allows Ethereum validators to opt-in to different commitment protocols
+
+For node operators
+Run a single sidecar with support for MEV-Boost and other proposer commitments protocols, such as preconfirmations and inclusion lists
+Out-of-the-box support for metrics reporting and dashboards to have clear insight into what is happening in your validator
+Plug-in system to add custom modules, e.g. receive a notification on Telegram if a relay fails to deliver a block
+
+For developers
+A modular platform to develop and distribute proposer commitments protocols
+A single API to interact with validators
+Suppor"
+https://github.com/NethermindEth/juno,True,"Juno is a golang Starknet node implementation by Nethermind with the aim of decentralising Starknet.
+
+📚 Documentation
+
+To know everything there is to know on how to interact with Juno, please check out the documentation.
+
+To become a Starknet Validator follow this guide.
+
+⚙️ Installation
+
+There are multiple ways of running Juno:
+Docker container
+Standalone binary
+From source
+
+See Running Juno for the detailed instructions on how to install and run Juno on your machine.
+
+📸 Starknet Snapshots
+
+To sync your node as fast as possible, use the provided snapshots service. Fresh snapshots are automatically uploaded once a week. See Database Snapshots to get instructions on how to set Juno up and running using a recent Starknet snapshot.
+
+🌐 Interacting with Juno
+
+Juno works as gateway into Starknet"
+https://github.com/lambdaclass/ethrex,True,"ethrex
+
+Minimalist, stable, modular, fast, and ZK native implementation of the Ethereum protocol in Rust.
+
+][tg-url]
+
+[tg-badge]: 
+[tg-url]: 
+
+Getting started
+
+For instructions on how to get started using ethrex L1 and/or L2, please refer to the ""Getting started"" section of the docs.
+
+L1 and L2 support
+
+This client supports running in two different modes:
+
+ ethrex L1** - As a regular Ethereum execution client
+ ethrex L2** - As a multi-prover ZK-Rollup (supporting SP1, RISC Zero and TEEs), where block execution is proven and the proof sent to an L1 network for verification, thus inheriting the L1's security. Support for based sequencing is currently in the works.
+
+Why ZK-Native?
+
+ethrex was built from the ground up with zero-knowledge proving in mind. This isn't a feature bolted onto an exi"
+https://github.com/succinctlabs/sp1,True,"SP1
+
+SP1 is the fastest, most-feature complete zero-knowledge virtual machine (zkVM) that can prove the execution of arbitrary Rust (or any LLVM-compiled language) programs. SP1 makes ZK accessible to any developer, by making it easy to write ZKP programs in normal Rust code.
+
+Install
+| Docs
+| Examples
+| Telegram Chat
+
+Getting Started 
+
+Today, developers can write programs, including complex, large programs like a ZK Tendermint light client or type-1 zkEVM using Reth, in Rust (with std support), generate proofs and verify them. Most Rust crates should be supported and can be used seamlessly by your program. Example programs can be found in the examples folder.
+
+To get started, make sure you have Rust installed. Then follow the installation guide in the SP1 book and read the getting started"
+https://github.com/succinctlabs/op-succinct,True,"op-succinct
+
+OP Succinct is the production-grade proving engine for the OP Stack, powered by SP1.
+
+With support for both validity proofs, with OP Succinct, and ZK fault proofs, with OP Succinct Lite, OP Succinct enables seamless upgrades for OP Stack rollups to a type-1 zkEVM rollup.
+
+Docs
+
+Repository Overview
+
+> [!CAUTION]
+> is the development branch and may contain unstable code.
+> For production use, please use the latest release.
+
+The repository is organized into the following directories:
+: The documentation for OP Succinct users and developers.
+: The solidity contracts for posting state roots to L1.
+: The programs for proving the execution and derivation of the L2 state transitions and proof aggregation.
+: The implementation of the service.
+: The implementation of the service.
+: Scri"
+https://github.com/a16z/halmos,True,"Halmos
+
+Install
+| Getting Started
+| Examples
+| FAQ
+| [Chat][chat]
+| awesome-halmos
+
+Halmos is a symbolic testing tool for EVM smart contracts. A Solidity/Foundry frontend is currently offered by default, with plans to provide support for other languages, such as Vyper and Huff, in the future.
+
+You can read more in our post: ""[Symbolic testing with Halmos: Leveraging existing tests for formal verification][post].""
+
+Join the [Halmos Telegram Group][chat] for any inquiries or further discussions.
+
+[post]: 
+[chat]: 
+
+Installation
+
+⭐ Using (recommended for most users)
+
+Using 
+
+You can download a pre-built Docker image that contains python, halmos, its dependencies, foundry, solvers, etc.:
+
+Using (for advanced users)
+
+Note: this is not recommended because of the extra work required to manage the"
+https://github.com/EspressoSystems/jellyfish,True,"Jellyfish cryptographic library
+
+Disclaimer
+
+DISCLAIMER: This software is provided ""as is"" and its security has not been externally audited. Use at your own risk.
+
+Chatroom
+
+For general discussions on Jellyfish PLONK, please join our Discord channel.
+
+Crates
+
+Helper
+'jf-utils': utilities and helper functions.
+
+Primitives
+: trait definitions for pseudorandom function (PRF).
+: trait definitions for collision-resistant hash function (CRHF).
+: trait definitions for cryptographic commitment scheme.
+: Rescue hash function, and its subsequent PRF, CRHF, commitment scheme implementations.
+: a Rescue-based ElGamal encryption scheme implementation.
+: signature scheme trait definition, and BLS/Schnorr signature scheme implementations.
+: verifiable random function trait definition and BLS-based implem"
+https://github.com/skalenetwork/libBLS,True,"libBLS: a C++ library for BLS Threshold Signatures
+
+A mathematical library written in C++ that supports BLS threshold signatures, Distributed Key Generation (DKG) and Threshold Encryption (TE).
+
+This libBLS library is developed by SKALE Labs and uses SCIPR-LAB's libff (see Libraries below).
+
+An important note about production readiness
+
+This libBLS library is still in active development and therefore should be regarded as alpha software. The development is still subject to security hardening, further testing, and breaking changes. This library has not yet been reviewed or audited for security. Please see SECURITY.md for reporting policies.
+
+Overview
+
+libBLS is a C++ library for BLS signatures and DKG that supports both threshold signatures and multi-signatures. Also it supports Threshold E"
+https://github.com/lambdaclass/lambdaworks,True,"lambdaworks
+
+> From the heights of these towers of fields, forty centuries of mathematics look down on us.
+
+This library provides an efficient implementation of cryptographic primitives used to build proving systems. Along with it, many backends for proving systems are shipped, and compatibility with different frontends is supported.
+Transforming the Future with Zero-Knowledge Proofs, Fully Homomorphic Encryption and new Distributed Systems algorithms
+Lambda Crypto Doctrine
+
+][tg-url]
+
+[tg-badge]: 
+[tg-url]: 
+
+Examples - mini apps
+
+Below is a list of examples to understand lambdaworks and learn what you can build with the tools provided. Most are educational examples and must not be used in production.
+
+Cryptographic Signatures
+ECDSA signatures (secp256k1)
+BLS signatures
+Schnorr signatures"
+https://github.com/wealdtech/ethdo,True,"A command-line tool for managing common tasks in Ethereum 2.
+
+Table of Contents
+Install
+Binaries
+Docker
+Source
+Setting up
+Usage
+Maintainers
+Contribute
+License
+
+Install
+
+Binaries
+
+Binaries for the latest version of can be obtained from the releases page.
+
+Docker
+
+You can obtain the latest version of using docker with:
+
+Source
+ is a standard Go program which can be installed with:
+
+Note that requires at least version 1.20 of go to operate. The version of go can be found with .
+
+If this does not work please see the troubleshooting page.
+
+The docker image can be build locally with:
+
+You can run using docker after that. Example:
+
+Note that that many commands connect to the beacon node to obtain information. If the beacon node is running directly on the server this requires the command, for exam"
+https://github.com/dappnode/DAppNode,True,"DAppNode
+
+Infrastructure for the decentralized world
+
+DAppNode is empowering people by creating a simple, transparent system for hosting P2P clients for DApps, Cryptocurrencies, VPNs, IPFS and more
+Read about our purpose and mission on Our Website
+Join our community and find support on Our Discord
+Check out what we are up to on Our Medium
+Share your ideas and find how to guides on Our Forum
+
+Discover DAppNode
+
+DAppNode lowers the barrier of entry for non tech-savvy participants. It allows you to deploy, update, and manage P2P clients and nodes without leaving your browser. No terminal or command line interface.
+
+Develop with DAppNode
+
+DAppNode modular architecture allows any team to or project to publish a dockerized application to the DAppNode packages eco-system. Benefit from an enthusia"
+https://github.com/intellij-solidity/intellij-solidity,True,"Solidity plugin for IntelliJ
+
+Features
+Syntax highlighting
+Code completion
+File templates
+Goto declaration
+Find usages
+Code formatting
+Forge test runner with gutter icons for running tests in files
+
+Supporting the plugin
+
+You can support the development by sponsoring the plugin on Github ❤️, or even by simply clicking ★ on GitHub and rating it on the plugin page.
+
+Reporting an issue
+
+Please attach the screenshot for every issue if possible. It will make the issue much clearer and easier to understand.
+
+Build
+
+Run
+
+Community
+
+Join our discord community.
+
+Contribute
+
+Contributions are always welcome!
+
+If you are only starting your way as an Intellij-Plugin developer, feel free to contact us, and we'll help you with the IDE setup and guide you through the code so that you will be able to make"
+https://github.com/ChainSafe/bls,True,"bls
+
+Javascript library for BLS (Boneh-Lynn-Shacham) signatures and signature aggregation, tailored for use in Eth2.
+
+Usage
+
+To use native bindings you must install peer dependency 
+
+By default, native bindings will be used if in NodeJS and they are installed. A WASM implementation (""herumi"") is used as a fallback in case any error occurs.
+
+The implementation offers a multi-threaded approach to verification and utilizes the libuv worker pool to verification. It is a more performant options synchronously and FAR better when utilized asynchronously. All verification functions provide sync and async versions. Both the and implementations offer verification functions with prefixes as free functions and also on their respective classes. This was done to preserve the isomorphic architecture of t"
+https://github.com/Plonky3/Plonky3,True,"Plonky3 is a toolkit which provides a set of primitives, such as polynomial commitment schemes, for implementing polynomial IOPs (PIOPs). It is mainly used to power STARK-based zkVMs, though in principle it may be used for PLONK-based circuits or other PIOPs.
+
+For questions or discussions, please use the Telegram group, t.me/plonky3.
+
+Status
+
+Fields:
+[x] Mersenne31
+[x] ""complex"" extension field
+[x] ~128 bit extension field
+[x] AVX2
+[x] AVX-512
+[x] NEON
+[x] General 31 bit fields (BabyBear and KoalaBear)
+[x] ~128 bit extension field
+[x] AVX2
+[x] AVX-512
+[x] NEON
+[x] Goldilocks
+[x] ~128 bit extension field
+
+Generalized vector commitment schemes
+[x] generalized Merkle tree
+
+Polynomial commitment schemes
+[x] FRI-based PCS
+[ ] tensor PCS
+[ ] univariate-to-multivariate adapter
+[ ] multivariate-to"
+https://github.com/Certora/CertoraProver,True,"Certora Prover
+
+The Certora Prover is a tool for formally verifying smart contracts.
+This document is intended for those who would like to contribute to the tool.
+
+If you are interested to use the tool on our cloud platform without having to locally build it,
+we recommend following the documentation here: 
+
+The instructions here are for users on Mac OS and Linux.
+
+Dependencies
+JDK 19+
+SMT solvers:
+[required] Z3 -- 
+[required] CVC5 -- 
+[optional] CVC4 -- 
+[optional] Yices -- 
+[optional] Bitwuzla -- 
+NOTE Whichever solvers you decide to install, remember to put the executables in a directory in your system's .
+Python 3
+We recommend downloading from here: 
+Make sure the version of pip matches with the python version
+Solidity compiler -- 
+ Pick the version(s) that is used by the contracts you"
+https://github.com/ethstaker/eth-docker,True,"Eth Docker: Docker automation for Ethereum nodes.
+
+Eth Docker, a simple yet configurable way to run Ethereum nodes.
+
+Getting Started
+
+Please see the official documentation.
+
+For a quick testnet start, you can install prerequisites and configure Eth Docker, as any user not named :
+Support
+
+The #software channel in ethstaker Discord is the place to ask questions about Eth Docker.
+
+Contributions
+
+Contributions are highly appreciated. We have GitPOAPs! To make your life easier,
+please read the contribution guidelines so you can run lint checks locally on pre-commit.
+
+License
+
+Apache License v2
+
+Version
+
+Eth Docker uses calendar versioning, to make it easy to align with known hardfork dates.
+Eth Docker will release a new version for breaking changes, so you can pin that along your pinned client"
+https://github.com/supranational/blst,True,"blst
+blst (pronounced 'blast') is a BLS12-381 signature library focused on performance and security. It is written in C and assembly.
+
+Table of Contents
+Status
+General notes on implementation
+Platform and Language Compatibility
+API
+Introductory Tutorial
+Public Keys and Signatures
+Signature Verification
+Signature Aggregation
+Serialization Format
+Build
+C static library
+Language-specific notes
+Go
+Rust
+Repository Structure
+Performance
+License
+
+Status
+This library is under active development
+
+An initial audit of this library was conducted by NCC Group in January 2021 and can be found here.
+
+Formal verification of this library by Galois is on-going and can be found here.
+
+This library is compliant with the following IETF draft specifications:
+IETF BLS Signature V6
+IETF RFC 9380 Hashing to Ellipt"
+https://github.com/wighawag/hardhat-deploy,True,"hardhat-deploy 
+
+ -->
+
+ -->
+ -->
+
+ -->
+
+ hardhat-deploy 
+
+A Hardhat Plugin For Replicable Deployments And Easy Testing
+
+> Note: This is the documentation for hardhat-deploy v2 that works with hardhat v3
+>
+> Documentation for hardhat-deploy v1 can be found on the v1 branch
+
+What is hardhat-deploy?
+
+hardhat-deploy makes it easy for you to deploy your EVM smart contracts across many chains while keeping track of them and replicating the same environment for testing.
+
+It adds a mechanism to associate names to addresses, so test and deployment scripts can be reconfigured by simply changing the address a name points to. This results in much clearer tests and deployment scripts — no more in your code.
+
+Why hardhat-deploy + rocketh?
+
+While Hardhat's official Ignition plugin offers a robust deploym"
+https://github.com/libp2p/libp2p,True,"libp2p is a modular networking framework bundled together as a full stack of protocols for peer-to-peer systems. It is the product of a long and arduous quest into the internet's network stack and all of the plentiful peer-to-peer protocols of the past. Building large-scale peer-to-peer systems has been complex and challenging in the last twenty years and libp2p is a way to fix that. It is a ""network stack""—a protocol suite—that cleanly separates concerns and enables sophisticated applications to use only the protocols they need without giving up interoperability and upgradeability. libp2p grew out of IPFS into an independent project designed to give any project state-of-the-art peer-to-peer capabilities.
+
+Learn more about libp2p at libp2p.io and docs.libp2p.io.
+
+Specifications
+
+View the f"
+https://github.com/ethereum/js-ethereum-cryptography,True,"ethereum-cryptography
+
+Audited pure JS library containing all Ethereum-related cryptographic primitives. Implemented with 6 noble & scure dependencies.
+
+Check out Changelog / Upgrading and an article about the library:
+A safer, smaller, and faster Ethereum cryptography stack.
+
+Usage
+
+We explicitly support major browsers and Node.js on x86 and arm64. Other major runtimes and platforms are supported on a best-effort basis.
+Refer to field of for runtime support information for each version.
+Tests are being ran with Webpack, Rollup, Parcel and Browserify.
+
+This package has no single entry-point, but submodule for each cryptographic
+primitive. The reason for this is that importing everything from a single file will lead to huge bundles when using this package for the web. This could be
+avoided"
+https://github.com/flashbots/mev-boost-relay,True,"MEV-Boost Relay
+
+MEV-Boost Relay for Ethereum proposer/builder separation (PBS).
+
+Currently live at:
+boost-relay.flashbots.net (also on Sepolia, Holesky and Hoodi)
+relay.ultrasound.money, agnostic-relay.net, bloXroute relays (light fork)
+mainnet.aestus.live, relay.edennetwork.io/info, mainnet-relay.securerpc.com
+
+Alternatives (not audited or endorsed): blocknative/dreamboat, manifold/mev-freelay
+
+See also
+Docker images
+mev-boost
+Relay API specs
+Guide for running mev-boost-relay at scale
+Running relay and builders in custom devnets
+More docs
+
+Components
+
+The relay consists of three main components, which are designed to run and scale independently, and to be as simple as possible:
+
+1. API: Services that provide APIs for (a) proposers, (b) block builders, (c) data.
+1. Website: Serving the we"
+https://github.com/flashbots/mev-boost,True,"![Docker hub](
+
+What is MEV-Boost?
+
+ is open source middleware run by validators to access a competitive block-building market. MEV-Boost is an initial implementation of proposer-builder separation (PBS) for proof-of-stake (PoS) Ethereum.
+
+With MEV-Boost, validators can access blocks from a marketplace of builders. Builders produce blocks containing transaction orderflow and a fee for the block proposing validator. Separating the role of proposers from block builders promotes greater competition, decentralization, and censorship-resistance for Ethereum.
+
+How does MEV-Boost work?
+
+PoS node operators must run three pieces of software: a validator client, a consensus client, and an execution client. MEV-boost is a sidecar for the beacon node - a separate piece of open source software, which q"
+https://github.com/taikoxyz/taiko-mono,True,"Taiko Alethia
+
+ The first based rollup.
+
+> [!WARNING]
+> The branch is under active development for the next Shasta fork. For the latest version of the Taiko Alethia protocol contracts (Pacaya fork), please use the branch. The release process involves security measures that the branch does not guarantee.
+
+Documentation
+
+Get started with Taiko Alethia:
+Taiko Alethia docs — High-level concepts, guides, resources, and reference pages for getting started.
+Protocol specs — In-depth specifications of the Taiko Alethia protocol for deeper understanding.
+Smart contracts — Taiko Alethia protocol smart contracts, fully documented with NatSpec.
+
+Packages
+
+> [!TIP]
+> Make sure your node is using the latest version tags for taiko-client and taiko-geth. Check out the node releases page!
+
+Issues
+
+If you f"
+https://github.com/Vectorized/solady,True,"][npm-url]
+][ci-url]
+][solidity-ci-url]
+][docs-url]
+
+Gas optimized Solidity snippets.
+
+I'm sooooooOooooooooOoooOoooooooooooooooo...
+
+Installation
+
+To install with Foundry:
+
+To install with Hardhat:
+
+Documentation
+
+Contracts
+
+The Solidity smart contracts are located in the directory.
+
+Directories
+
+Contributing
+
+This repository serves as a laboratory for cutting edge snippets that may be merged into Solmate.
+
+Feel free to make a pull request.
+
+Do refer to the contribution guidelines for more details.
+
+Safety
+
+This is experimental software and is provided on an ""as is"" and ""as available"" basis.
+
+We do not give any warranties and will not be liable for any loss incurred through any use of this codebase.
+
+While Solady has been heavily tested, there may be parts that may exhibit unexpected emerg"
+https://github.com/Consensys/gnark-crypto,True,"gnark-crypto
+
+ provides efficient cryptographic primitives, in Go:
+
+ Elliptic curve cryptography & Pairing** on:
+[ ] (audit report)
+[ ] (audit report)
+[ ]
+[ ] / [ ]
+[ ] / [ ]
+Each of these curves has a [ ] sub-package with its companion curve which allow efficient elliptic curve cryptography inside zkSNARK circuits.
+Additional elliptic curves:
+[ ] (P-256)
+[ ]
+[ ]
+[ ]
+[ ] - Finite field arithmetic code generator (blazingly fast big.Int)
+[ ] - Fast Fourier Transform
+[ ] - FRI (multiplicative) commitment scheme
+[ ] - Fiat-Shamir transcript builder
+[ ] - MiMC hash function using Miyaguchi-Preneel construction
+[ ] - KZG commitment scheme
+[ ] - Permutation proofs
+[ ] - Plookup proofs
+[ ] - EdDSA signatures (on the companion [ ] curves)
+
+ is actively developed and maintained by the team ( | HackM"
+https://github.com/l2beat/l2beat,True,"L2BEAT 💓
+
+L2BEAT (Layer 2 Beat) is a website dedicated to providing research and statistics about the very exciting layer 2 technology on Ethereum.
+
+You can visit the site yourself at 
+
+Contributing
+
+We welcome and encourage contributions. To learn about the project structure and contributions please read .
+
+🔍 Here is also a visual step-by-step guide for creating a Pull Request - link
+
+License
+
+We believe in knowledge sharing and open access. Our code is and will remain open source with the permissive MIT license.
+
+Versioning and publishing (tooling)
+
+Some of the sub-packages are published to NPM. We use a tool called changesets to manage versioning, cross-dependency versioning and publishing new versions to NPM. When you make a change, before merging to main:
+run and mark the packages you"
+https://github.com/protofire/solhint,True,"By Protofire 
+
+This is an open source project for linting Solidity code. This project
+provides both Security and Style Guide validations.
+
+VISIT OUR WEBSITE 
+JOIN OUR DISCORD SERVER
+
+Installation
+
+You can install Solhint using npm:
+
+Usage
+
+First initialize a configuration file, if you don't have one:
+
+This will create a file with the recommended rules enabled. Then run Solhint with one or more Globs) as arguments. For example, to lint all files inside directory, you can do:
+
+To lint a single file:
+
+Run without arguments to get more information:
+
+New Versions
+Solhint checks if there are newer versions. The option avoids that check.
+option will create a file named as on current folder with default or specified format 
+
+Fix
+This option currently works on:
+avoid-throw
+avoid-sha3
+no-console
+exp"
+https://github.com/paulmillr/noble-curves,True,"noble-curves
+
+Audited & minimal JS implementation of elliptic curve cryptography.
+🔒 Audited by independent security firms
+🔻 Tree-shakeable: unused code is excluded from your builds
+🏎 Fast: hand-optimized for caveats of JS engines
+🔍 Reliable: cross-library / wycheproof tests and fuzzing ensure correctness
+➰ Weierstrass, Edwards, Montgomery curves; ECDSA, EdDSA, Schnorr, BLS signatures
+✍️ ECDH, hash-to-curve, OPRF, FROST, Poseidon hash
+🔖 Non-repudiation (SUF-CMA, SBS) & consensus-friendliness (ZIP215) in ed25519, ed448
+🥈 Optional, friendly wrapper over native WebCrypto
+🪶 29KB (gzipped) including bundled hashes, 11KB for single-curve build
+
+Curves have 5kb sister projects
+secp256k1 & ed25519.
+They have smaller attack surface, but less features.
+
+Take a glance at GitHub Discussions for questio"
+https://github.com/flashbots/rbuilder,True,"rbuilder
+
+rbuilder is an open-source, blazingly fast, cutting edge implementation of a Ethereum MEV-Boost block builder written in Rust.
+It is designed to provide a delightful developer experience, enabling community members to contribute and researchers to use rbuilder to study block building.
+
+Features
+Multiple algorithms: Can be upgraded to handle several block building algorithms. The included algorithm builds blocks by sorting the orders by either effective gas price or total profit and then trying (they might fail!) to execute them to create the block. For more details see ordering_builder.rs
+Backtesting: support for quick and easy backtesting on mempool transactions and other data
+Bundle merging: bundles that target transactions which have already been included in a pending block ca"
+https://github.com/arkworks-rs/algebra,True,"arkworks::algebra 
+
+The arkworks ecosystem consist of Rust libraries for designing and working with zero knowledge succinct non-interactive arguments (zkSNARKs). This repository contains efficient implementations of the key algebraic components underlying zkSNARKs: finite fields, elliptic curves, and polynomials.
+
+This library is released under the MIT License and the Apache v2 License (see License).
+
+WARNING: This is an academic proof-of-concept prototype, and in particular has not received careful code review. This implementation is NOT ready for production use.
+
+Directory structure
+
+This repository contains several Rust crates:
+: Generic abstractions for, and implementations of various kinds of finite fields
+: Generic abstractions for prime-order groups, and implementations of various k"
+https://github.com/herumi/mcl,True,"mcl
+
+A portable and fast pairing-based cryptography library.
+
+Abstract
+
+mcl is a library for pairing-based cryptography,
+which supports the optimal Ate pairing over BN curves and BLS12-381 curves.
+
+News
+Fix memory leak of some operations on Windows
+Remove unintended G1::isValidOrder on BN curve. This improves the performance of deserialization of a point of G1.
+
+Version v3 includes breaking changes to lib/dll specifications.
+The default has a maximum size of 384bit for the definition field Fp of the elliptic curve,
+and 256bit for the order field Fr of the elliptic curve ( , ).
+The arguments of the Fp/Fr initialization function have been changed.
+has been merged into mcl.{a,lib} and removed.
+
+Support architecture
+x86-64 Windows + Visual Studio 2015 (or later)
+x86, x86-6"
+https://github.com/LFDT-web3j/web3j,True,"Web3j: Web3 Java Ethereum Dapp API
+==================================
+
+Web3j is a lightweight, highly modular, reactive, type safe Java and
+Android library for working with Smart Contracts and integrating with
+clients (nodes) on the Ethereum network:
+
+This allows you to work with the Ethereum
+blockchain, without the additional overhead of having to write your own
+integration code for the platform.
+
+The Java and the Blockchain talk provides
+an overview of blockchain, Ethereum and Web3j.
+
+NEW! Get involved!
+
+Since Web3J moved under Hyperledger we started to do Web3J Contributors calls every 2 weeks!
+Subscribe to our community page and to see check our call schedule.
+Your contribution matters!
+Community Link - Check our last updates! 
+Calendar Invite - Add the contributor call to your calenda"
+https://github.com/ethereum/py_ecc,True,"py_ecc
+
+Elliptic curve crypto in python including secp256k1, altbn128, and bls12381.
+
+> Warning: This library contains some experimental code and has NOT been audited.
+
+Read the documentation.
+
+View the change log.
+
+Installation"
+https://github.com/lambdaclass/lambda_ethereum_consensus,True,"Lambda Ethereum Consensus Client
+
+ ## Overview
+
+ Lambda Ethereum Consensus Client is an Elixir-based Ethereum consensus layer client. It leverages the fault tolerance and distributed system capabilities of the BEAM VM as well as the succint and easy to understand syntax of Elixir.
+
+ Besides pushing for client diversity in the Ethereum ecosystem, our goal is to create a clear landscape for anyone who is interested either in Ethereum or Elixir
+
+ ### Why a Consensus Client?
+ We built this client to contribute to Ethereum’s client diversity, which is essential for the resilience and decentralization of the network. 
+ As stated on ethereum.org: ""Having many independently developed and maintained clients is vital for the health of a decentralized network.""
+
+ ### Why Elixir?
+
+ Elixir is a functio"
+https://github.com/sigp/lighthouse,True,"Lighthouse: Ethereum consensus client
+
+An open-source Ethereum consensus client, written in Rust and maintained by Sigma Prime.
+
+[Book Link] [Chat Link]
+
+[Chat Badge]: 
+[Chat Link]: 
+[Book Status]:
+[Book Link]: 
+[stable]: 
+[unstable]: 
+[blog]: 
+
+Documentation
+
+Overview
+
+Lighthouse is:
+Ready for use on Ethereum consensus mainnet.
+Fully open-source, licensed under Apache 2.0.
+Security-focused. Fuzzing techniques have been continuously applied and several external security reviews have been performed.
+Built in Rust, a modern language providing unique safety guarantees and
+	excellent performance (comparable to C++).
+Funded by various organisations, including Sigma Prime, the
+	Ethereum Foundation, Consensys, the Decentralization Foundation and private individuals.
+Actively involved in the speci"
+https://github.com/otterscan/otterscan,True,"Otterscan
+
+An open-source, fast, local, laptop-friendly Ethereum block explorer.
+
+Documentation
+
+> 💡 For install instructions and a lot more, please take a look at our official documentation: The Otterscan Book!
+
+What?
+
+This is an Ethereum block explorer designed to be run locally with an archive node companion, Erigon.
+
+This approach brings many advantages, as follows.
+
+Privacy
+
+You are querying your own node, so you are not sending your IP address or queries to an external, third-party node.
+
+Fast
+
+Since you are querying your local archive node, everything is fast. No network roundtrips are necessary.
+
+Actually, very fast
+
+This software was designed to be a companion of Erigon, a blazingly fast archive node.
+
+Really, it is even faster
+
+The standard web3 JSON-RPC methods are quite verbose"
+https://github.com/hyperledger/besu,True,"Besu Ethereum Client
+
+Download
+
+Besu is an Apache 2.0 licensed, MainNet compatible, Ethereum client written in Java.
+
+Useful Links
+[Besu User Documentation]
+[Besu Issues]
+Besu Wiki
+How to Contribute to Besu
+Besu Roadmap & Planning
+
+Issues 
+
+Besu issues are tracked [in the github issues tab][Besu Issues].
+See our guidelines for more details on searching and creating issues.
+
+If you have any questions, queries or comments, [Besu channel on Discord] is the place to find us.
+
+Besu Users
+
+To install the Besu binary, follow these instructions. 
+
+Besu Developers
+[Contributing Guidelines]
+Coding Conventions
+Command Line Interface (CLI) Style Guide
+[Besu User Documentation] for running and using Besu
+
+Development
+
+Instructions for how to get started with developing on the Besu codebase. Please also"
+https://github.com/ethereum/web3.py,True,"web3.py
+
+A Python Library for Interacting with Ethereum
+
+web3.py allows you to interact with the Ethereum blockchain using Python, enabling you to build decentralized applications, interact with smart contracts, and much more.
+Python 3.10+ support
+
+Installation
+
+Documentation
+
+Get started in 5 minutes or
+take a tour of the library.
+
+View the change log.
+
+For additional guides, examples, and APIs, see the documentation.
+
+Want to Help?
+
+Want to file a bug, contribute some code, or improve documentation? Excellent! Read up on our
+guidelines for contributing,
+then check out issues that are labeled
+Good First Issue.
+
+Questions on Implementation or Usage?
+
+Join the conversation in the Ethereum Python Community Discord."
+https://github.com/eth-infinitism/account-abstraction,True,"Description
+
+This repository contains the tools and resources for working with ERC-4337 Account Abstraction smart contracts. This includes the code for the singleton contract that is deployed by our team on most EVM-compatible networks.
+
+Overview
+
+Account abstraction allows users to interact with Ethereum using smart contract wallets instead of EOAs, without compromising decentralization, providing benefits like:
+Social recovery
+Batched transactions
+Sponsored transactions (gas abstraction)
+Signature abstraction
+Advanced authorization logic
+
+Repository Structure 
+
+Core Components
+EntryPoint Contract ( ): The central contract that processes UserOperations
+BaseAccount ( ): Base implementation for smart contract accounts
+BasePaymaster ( ): Helper class for creating a paymaster
+StakeManager ( )"
+https://github.com/smartcontracts/simple-optimism-node,True,"Simple Optimism Node
+
+A simple docker compose script for launching full / archive node for OP Stack chains.
+
+Recommended Hardware
+
+OP and Base Mainnet
+16GB+ RAM
+2 TB SSD (NVME Recommended)
+100mb/s+ Download
+
+Testnets
+16GB+ RAM
+500 GB SSD (NVME Recommended)
+100mb/s+ Download
+
+Installation and Configuration
+
+Install docker and docker compose
+
+> Note: If you're not logged in as root, you'll need to log out and log in again after installation to complete the docker installation.
+
+Note: This command install docker and docker compose for Ubuntu. For windows and mac desktop or laptop, please use Docker Desktop. For other OS, please find instruction in Google.
+
+(For non-root user) After logged out and logged back in, test if docker is working by running.
+
+It should returns an empty container list"
+https://github.com/ipsilon/evmone,True,"evmone
+
+[ethereum]
+[standard readme]
+[codecov]
+[circleci]
+[appveyor]
+[Apache License, Version 2.0]
+
+> Fast Ethereum Virtual Machine implementation
+
+evmone is a C++ implementation of the Ethereum Virtual Machine (EVM). 
+Created by members of the [Ipsilon] (ex-[Ewasm]) team, the project aims for clean, standalone EVM implementation 
+that can be imported as an execution module by Ethereum Client projects. 
+The codebase of evmone is optimized to provide fast and efficient execution of EVM smart contracts.
+
+Characteristic of evmone
+
+1. Exposes the [EVMC] API.
+2. Requires C++20 standard.
+3. The [intx] library is used to provide 256-bit integer precision.
+4. The [ethash] library is used to provide Keccak hash function implementation
+ needed for the special instruction.
+5. Contains two interpreter"
+https://github.com/ethpandaops/ethereum-package,True,"Ethereum Package
+
+This is a [Kurtosis][kurtosis-repo] package that will spin up a private Ethereum testnet over Docker or Kubernetes with multi-client support, Flashbot's infrastructure for PBS-related testing/validation, and other useful network tools (transaction spammer, monitoring tools, etc). Kurtosis packages are entirely reproducible and composable, so this will work the same way over Docker or Kubernetes, in the cloud or locally on your machine.
+
+You now have the ability to spin up a private Ethereum testnet or public devnet/testnet (e.g. Goerli, Holesky, Sepolia, dencun-devnet-12, verkle-gen-devnet-2 etc) with a single command. This package is designed to be used for testing, validation, and development of Ethereum clients, and is not intended for production use. For more details"
+https://github.com/DefiLlama/chainlist,True,"Chainlist
+
+Add a chain
+
+Submit a PR that adds a new file to the constants/additionalChainRegistry folder. The new file should be named and the contents should follow this structure:
+
+Add an RPC to a chain that is already listed
+
+If you wish to add your RPC, please submit a PR modifying constants/extraRpcs.js to add your RPC to the given chains.
+
+API
+The following API returns all the data in our website, including chain data along with all of their RPCs:"
