@@ -1,31 +1,3 @@
-"""==============================
-Layer 1 v9 — DeepFunding Level 2 Edition
-==========================================================================
-
-INPUTS (all in same folder as this script):
-  repos_to_predict.csv                         — 98 seed repo URLs to clone & scan
-  seedReposWithNoTransitiveDependencies.json   — maps each seed repo → [dep URLs]
-  github_repo_data.csv                         — language + metadata for seed repos
-
-WHAT THIS DOES:
-  1. Fetches language for every dependency via GitHub API (cached to
-     collected/dep_languages.json so we only hit the API once)
-  2. Clones each of the 98 seed repos (shallow, depth=1)
-  3. For each clone, scans source files to measure how heavily each
-     dependency is actually used
-  4. Outputs collected/usage_scores.csv — one row per (repo, dependency)
-
-SCORE FORMULA (unchanged from v9):
-  raw_freq   = imports×1 + aliases×2 + calls×3
-  file_score = file_weight × log1p(raw_freq)
-  total      = manifest_bonus + Σ(file_scores)
-
-HOW TO RUN:
-  pip install pandas tqdm requests
-  set GITHUB_TOKEN=ghp_xxxx      (or paste directly into GITHUB_TOKEN below)
-  python layer1_usage.py
-"""
-
 import os, re, json, time, subprocess, shutil, platform
 import pandas as pd
 import numpy as np
@@ -43,7 +15,7 @@ except ImportError:
 # CONFIG — edit these paths if needed
 # ─────────────────────────────────────────────────────────────
 
-GITHUB_TOKEN  = ""   # paste token here OR set env var GITHUB_TOKEN
+GITHUB_TOKEN  = "" 
 
 PREDICT_FILE  = "repos_to_predict.csv"
 DEPS_JSON     = "seedReposWithNoTransitiveDependencies.json"
