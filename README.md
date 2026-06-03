@@ -82,6 +82,21 @@ This single feature carries the highest weight in the final formula (`0.35`), re
 
 ---
 
+## 3. Two-Pass Weighted Producer Scoring
+
+Being depended on by other repos is a strong originality signal but counting inbound edges naively turned out to be one of the trickier problems in the model.
+### Why Inbound Count Alone Failed
+The first version used raw inbound edge count - how many of the 98 repos depend on you. This immediately produced a spike distribution. geth had so many more inbound edges than everything else that it normalised to 1.0 while most of the field collapsed toward 0.
+### Why sqrt Compression Fixed It
+Linear normalisation preserves the spike. Instead, I applied sqrt(count / max), square root compression spreads the distribution by reducing the relative gap between the top repo and mid-tier repos. A repo with 9 inbound edges is no longer scored as 9× a repo with 1 inbound edge; it scores as 3×. This gave the rest of the field meaningful differentiation.
+## Why Second-Pass Weighting Mattered
+Even after compression, all inbound edges were equal. Being depended on by ethereum-helm-charts (a config wrapper) counted the same as being depended on by ethers.js (a widely used library). Pass 2 fixes this: each inbound edge is weighted by the source repo's own pass-1 producer score. A dependency from a high-producer repo contributes more than a dependency from a low-producer repo. This is quality-adjusted centrality, not just how many repos depend on you, but how important those repos are themselves. sqrt compression is applied again on the final weighted score to keep the distribution healthy.
+
+![Producer Consumer Scatter](plots/viz_02_producer_consumer_scatter.png)
+*Figure 3: Producer score (how much others depend on you) vs consumer score (how much you depend on others), coloured by category. Repos in the top-left quadrant - high producer, low consumer - are pure infrastructure producers. Those in the bottom-right are heavy consumers (wrappers, config tools).*
+
+---
+
 ## 4. AI-Assisted Originality Inference
 
 Structural signals alone can't detect what a repo actually does. A cryptographic library and a deployment script can look identical from a dependency graph perspective. I added a semantic layer using an LLM ensemble to extract originality signals from each repo's README and description.
@@ -150,9 +165,6 @@ Not all source files carry the same signal. A test file that uses a crypto libra
 
 Additionally, a **test-ratio penalty** halves the total score for any dependency where more than 80% of all call detections come from test files. This catches repos that list a library as a production dependency but only use it in their test suite.
 
-![Producer Consumer Scatter](plots/viz_02_producer_consumer_scatter.png)
-*Figure 3: Producer score (how much others depend on you) vs consumer score (how much you depend on others), coloured by category. Repos in the top-left quadrant - high producer, low consumer - are pure infrastructure producers. Those in the bottom-right are heavy consumers (wrappers, config tools).*
-
 ### How Usage Feeds the Main Formula
 
 The usage scores are aggregated per repo into a single `usage_signal`:
@@ -200,7 +212,7 @@ These proxies were minimised and documented. I used the smallest defensible numb
 
 ---
 
-## 8. Challenges Encountered
+## 7. Challenges Encountered
 
 - **Rust workspace parsing complexity.** Large Rust monorepos (e.g. `reth`) have nested `Cargo.toml` files across dozens of workspace members. Naive counting inflated their dep count because the same dependency appeared in multiple workspace manifests. I de-duplicated at the workspace level.
 - **Inconsistent ecosystem metadata from deps.dev.** Some repos appeared under different slugs in deps.dev vs GitHub.
@@ -211,7 +223,7 @@ These proxies were minimised and documented. I used the smallest defensible numb
 
 ---
 
-## 9. What I Built
+## 8. What I Built
 
 1. **Multi-source dependency unification.** Rather than accepting whatever dep count GitHub provides, I built a priority hierarchy across 5 data sources and reconciled them into a single comparable signal.
 2. **Ecosystem-aware scaling.** Rust, Go, Maven, and PyPI all report "dependencies" differently. The scaling factors prevent any one ecosystem from dominating the rankings.
@@ -221,7 +233,7 @@ These proxies were minimised and documented. I used the smallest defensible numb
 
 ---
 
-## 10. Known Limitations
+## 9. Known Limitations
 
 
 - A repo can have few dependencies and still be doing unoriginal work (copy-pasting code instead of importing it). The model can't detect plagiarism or code similarity.
