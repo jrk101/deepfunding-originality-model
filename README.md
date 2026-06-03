@@ -110,9 +110,7 @@ The negative signals were as important as the positive ones. Many repos that sco
 
 The biggest semantic challenge I faced: repositories like `blst`, `gnark-crypto`, and `noble-curves` describe themselves in ways that superficially resemble wrappers. They say things like "bindings to the blst library" or "Go bindings for BLS signatures." A naive LLM reads this and flags `is_wrapper_or_integration = 1`.
 
-In reality, these repos implement novel, highly optimised cryptographic math — prime field arithmetic, elliptic curve operations, pairing computations — that took years of expert engineering to develop. They are foundational primitives, not wrappers.
-
-I addressed this in two ways. First, I tuned the LLM prompts to distinguish between "bindings to external C libraries" (a true wrapper) versus "implements cryptographic primitives with optimised field arithmetic" (original work). Second, I used category detection to identify `crypto_primitive` repos and assign them appropriately — if a repo is in the `crypto_primitive` category, the `is_wrapper` signal is weighted more cautiously in the formula.
+I addressed this in two ways. First, I tuned the LLM prompts to distinguish between "bindings to external C libraries" (a true wrapper) versus "implements cryptographic primitives with optimised field arithmetic" (original work). Second, I used category detection to identify `crypto_primitive` repos and assign them appropriately, if a repo is in the `crypto_primitive` category, the `is_wrapper` signal is weighted more cautiously in the formula.
 
 The final `ai_wrapper_coef` in the formula is `−0.10` (the strongest negative coefficient), but it's clipped to `±0.15` across all AI signals combined, preventing any single signal from dominating. The `ai_found_coef` (foundational infrastructure) sits at `+0.08`, specifically to counterbalance false wrapper flags on legitimate crypto primitives.
 
@@ -124,12 +122,12 @@ Counting how many dependencies a repo declares tells you something. But it doesn
 
 ### Repository Cloning and Static Analysis
 
-I shallow-cloned all 98 seed repos (`git clone --depth 1`) and scanned their source code. For each `(repo, dependency)` pair, I measured:
+I shallow-cloned all 98 seed repos and scanned their source code. For each `(repo, dependency)` pair, I measured:
 
-- **Manifest declarations** — is it a production dep or dev-only?
-- **Import statements** — does the code actually import the dependency?
-- **Import aliases** — does it bind the import to a name (stronger signal than a bare import)?
-- **Call frequency** — how many times does it call functions from that dependency?
+- **Manifest declarations** - is it a production dep or dev-only?
+- **Import statements** - does the code actually import the dependency?
+- **Import aliases** - does it bind the import to a name (stronger signal than a bare import)?
+- **Call frequency** - how many times does it call functions from that dependency?
 
 These signals are weighted differently in the usage score:
 
@@ -142,18 +140,18 @@ Calls are triple-weighted because they're the strongest evidence of real usage. 
 
 ### File Location Weighting
 
-Not all source files carry the same signal. A test file that uses a crypto library for mocking is not the same as core source code that builds on it. I weighted files by their location:
+Not all source files carry the same signal. A test file that uses a crypto library is not the same as core source code that builds on it. I weighted files by their location:
 
 | Location | Weight | Rationale |
 |---|---|---|
-| Core directories (`src/`, `lib/`, `core/`, `internal/`) | 2.0 | Production logic — strong signal |
+| Core directories (`src/`, `lib/`, `core/`, `internal/`) | 2.0 | Production logic - strong signal |
 | Normal source files | 1.0 | Standard production code |
 | Test / spec / example / bench | 0.3 | Usage here is weaker evidence |
 
 Additionally, a **test-ratio penalty** halves the total score for any dependency where more than 80% of all call detections come from test files. This catches repos that list a library as a production dependency but only use it in their test suite.
 
 ![Producer Consumer Scatter](plots/viz_02_producer_consumer_scatter.png)
-*Figure 2: Producer score (how much others depend on you) vs consumer score (how much you depend on others), coloured by category. Repos in the top-left quadrant — high producer, low consumer — are pure infrastructure producers. Those in the bottom-right are heavy consumers (wrappers, config tools).*
+*Figure 3: Producer score (how much others depend on you) vs consumer score (how much you depend on others), coloured by category. Repos in the top-left quadrant - high producer, low consumer - are pure infrastructure producers. Those in the bottom-right are heavy consumers (wrappers, config tools).*
 
 ### How Usage Feeds the Main Formula
 
@@ -165,19 +163,13 @@ intensity    = log1p(avg_weighted_score) / log1p(max_avg + ε)
 usage_signal = 0.5 × source_ratio + 0.5 × intensity
 ```
 
-In the final formula, this signal carries a negative weight (`−0.03`). A high `usage_signal` means the repo heavily uses its dependencies — which is a mild negative indicator for originality. Repos that don't use their dependencies much at all, but are themselves heavily used by others, are the most original by this logic.
+In the final formula, this signal carries a negative weight. A high `usage_signal` means the repo heavily uses its dependencies  which is a mild negative indicator for originality. Repos that don't use their dependencies much at all, but are themselves heavily used by others, are the most original by this logic.
 
 ---
 
 ## 6. Proxy Signal Engineering
 
-After applying all automated methods, six repositories still had zero detected dependencies across all data sources. These weren't actually dependency-free — they were low-level enough that conventional dependency tracking doesn't apply to them:
-
-- `libBLS` / `mcl` — C++ BLS signature libraries. No Cargo, no npm, no Go module.
-- `blst` — assembly-optimised BLS12-381 implementation.
-- `nimbus-eth2` — Nim-language consensus client. Nim ecosystem largely invisible to standard dep trackers.
-- `DAppNode`, `ethereum-package` — infrastructure orchestration repos.
-
+After applying all automated methods, six repositories still had zero detected dependencies across all data sources.
 For these, I assigned conservative manual proxy dep counts based on known ecosystem role:
 
 | Repo | Proxy Dep Count | Rationale |
@@ -187,12 +179,12 @@ For these, I assigned conservative manual proxy dep counts based on known ecosys
 | `nimbus-eth2` | 400 | Full consensus client, equivalent complexity to prysm/lighthouse |
 | `DAppNode` | 5 | Orchestration tool, structurally low-dep by design |
 | `ethereum-package` | 5 | Kurtosis package |
-| `simple-optimism-node` | 3 | — |
+| `simple-optimism-node` | 3 | - |
 
-These proxies were minimised and documented. I used the smallest defensible number rather than inflating scores. The Nimbus proxy (400) is the only aggressive one — but a full consensus client with Nim's package ecosystem genuinely has hundreds of logical dependencies even if they don't show up in automated scanning.
+These proxies were minimised and documented. I used the smallest defensible number rather than inflating scores. The Nimbus proxy (400) is the only aggressive one. But a full consensus client with Nim's package ecosystem genuinely has hundreds of logical dependencies even if they don't show up in automated scanning.
 
 ![Category Distribution](plots/category_distribution_and_score_ranges.png)
-*Figure 4: Left — repo count per category. Right — score distribution per category with category caps overlaid (red dashed lines). ZK systems and execution clients cluster near their cap; config/infra and data repos sit far below theirs.*
+*Figure 4: Left - repo count per category. Right - score distribution per category with category caps overlaid. ZK systems and execution clients cluster near their cap; config/infra and data repos sit far below theirs.*
 
 ![Weight Contribution](plots/weight_contribution_breakdown.png)
 *Figure 5: Mean contribution of each feature to the raw score across all 98 repos. Dep score dominates, as intended. AI signals and usage contribute smaller but meaningful adjustments.*
@@ -211,35 +203,29 @@ These proxies were minimised and documented. I used the smallest defensible numb
 ## 8. Challenges Encountered
 
 - **Rust workspace parsing complexity.** Large Rust monorepos (e.g. `reth`) have nested `Cargo.toml` files across dozens of workspace members. Naive counting inflated their dep count because the same dependency appeared in multiple workspace manifests. I de-duplicated at the workspace level.
-- **Inconsistent ecosystem metadata from deps.dev.** Some repos appeared under different slugs in deps.dev vs GitHub (e.g. `ethereum/go-ethereum` vs `go-ethereum`). Manual slug-to-package mappings in `KNOWN_OVERRIDES` cover the most important cases.
-- **README noise in AI signal extraction.** Many repos have marketing-style READMEs that obscure their actual technical nature. Repos that say "easy to use" and "quick start" aren't necessarily low-originality — they just have better documentation. I downweighted `README_LOW` keywords and capped the `readme_bonus` at `±0.06`.
+- **Inconsistent ecosystem metadata from deps.dev.** Some repos appeared under different slugs in deps.dev vs GitHub.
+- **README noise in AI signal extraction.** Many repos have marketing-style READMEs that obscure their actual technical nature. Repos that say "easy to use" and "quick start" aren't necessarily low-originality, they just have better documentation. I downweighted `README_LOW` keywords and capped the `readme_bonus` at `±0.06`.
 - **AI model calibration instability.** Different model runs on the same repo sometimes gave different binary signal values. I used ensemble voting across multiple models and found that the 3 most important signals (wrapper, foundational, scratch) had the highest agreement rate.
-- **Normalization instability with small subsets.** When testing on subsets of repos, the normalization constants (computed from the full distribution) shifted significantly, making weight tuning results non-transferable. I added a minimum floor to `_MAX_LOG_DEP` (`log1p(400)`) to stabilise this.
+- **Normalization instability with small subsets.** When testing on subsets of repos, the normalization constants shifted significantly, making weight tuning results non-transferable. I added a minimum floor to `_MAX_LOG_DEP` (`log1p(400)`) to stabilise this.
 - **16 jury anchors is a very small calibration set.** This was the fundamental constraint the entire model design had to work around. With 15+ parameters, any unconstrained optimizer will overfit. I fixed 13 of 15 weights based on domain reasoning and only grid-searched the 2 most sensitive parameters.
 
 ---
 
-## Why This Approach Is Different
-
-Most approaches to this problem would either train a regression model on the jury data (impossible at scale with 9 points), use raw GitHub popularity metrics (wrong signal entirely), or ask an LLM to score repos directly (unreliable and unverifiable).
-
-## 9. What I Built Instead
+## 9. What I Built
 
 1. **Multi-source dependency unification.** Rather than accepting whatever dep count GitHub provides, I built a priority hierarchy across 5 data sources and reconciled them into a single comparable signal.
 2. **Ecosystem-aware scaling.** Rust, Go, Maven, and PyPI all report "dependencies" differently. The scaling factors prevent any one ecosystem from dominating the rankings.
 3. **Two-pass weighted producer scoring.** Being depended on by `geth` counts more than being depended on by a config script. The second pass re-weights inbound edges by the source repo's own producer score, creating a quality-adjusted centrality measure.
-4. **Source-code usage intensity.** Instead of just counting declared dependencies, I measured actual usage in source code — imports, aliases, and call frequency — weighted by file importance. This distinguishes real dependencies from stale or test-only ones.
+4. **Source-code usage intensity.** Instead of just counting declared dependencies, I measured actual usage in source code like imports, aliases, and call frequency, weighted by file importance. This distinguishes real dependencies from stale or test-only ones.
 5. **Soft category caps instead of hard clips.** Repos can exceed their category ceiling; they just do so at a reduced rate. This preserves relative ordering within categories without clipping information.
-6. **Leave-2-out cross-validation.** With only 9 anchors, I exhausted all C(9,2) = 36 held-out pairs to check for overfitting in the weight tuning, logging a warning if the CV gap exceeded 0.04.
 
 ---
 
 ## 10. Known Limitations
 
-Being honest about limitations is part of building a trustworthy model. Here's what this approach can't do well:
 
-- **Dep count imperfectly reflects engineering complexity.** A repo can have few dependencies and still be doing unoriginal work (copy-pasting code instead of importing it). The model can't detect plagiarism or code similarity.
-- **Static analysis misses runtime behaviour.** The usage scanner can detect that a repo imports `tokio` and calls `tokio::spawn`, but it can't tell whether that use is architecturally central or incidental. Dynamic analysis would give better signal but isn't feasible at this scale.
-- **AI signals may contain model bias.** The LLM ensemble may have systematic biases toward or against certain kinds of repos — for example, repos with unusual README structures or non-English documentation may be harder to classify correctly.
-- **Ecosystem coverage is incomplete.** Nim (used by `nimbus-eth2`, `status-im`) has almost no automated dependency tracking. OCaml, Haskell, and Elixir repos are similarly underserved. These required manual proxy estimates.
-- **16 anchors may not be representative.** The jury anchors used for calibration are the publicly disclosed ones, which may not cover the full diversity of the 98 repos (e.g. there may be no anchor for the `data_repo` or `config_infra` categories). The model's calibration is strongest in the regions of the score space covered by anchors.
+- A repo can have few dependencies and still be doing unoriginal work (copy-pasting code instead of importing it). The model can't detect plagiarism or code similarity.
+- The usage scanner can detect that a repo imports `tokio` and calls `tokio::spawn`, but it can't tell whether that use is architecturally central or incidental. Dynamic analysis would give better signal but isn't feasible at this scale.
+- The LLM ensemble may have systematic biases toward or against certain kinds of repos.
+- Nim (used by `nimbus-eth2`, `status-im`) has almost no automated dependency tracking. OCaml, Haskell, and Elixir repos are similarly underserved. These required manual proxy estimates.
+- The jury anchors used for calibration are the publicly disclosed ones, which does not cover the full diversity of the 98 repos (e.g. there may be no anchor for the `data_repo` or `config_infra` categories).
