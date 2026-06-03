@@ -186,7 +186,7 @@ These proxies were minimised and documented. I used the smallest defensible numb
 ![Category Distribution](plots/viz_04_category_distribution.png)
 *Figure 4: Left - repo count per category. Right - score distribution per category with category caps overlaid. ZK systems and execution clients cluster near their cap; config/infra and data repos sit far below theirs.*
 
-![Weight Contribution](plots/viz_05_weight_contributionspng)
+![Weight Contribution](plots/viz_05_weight_contributions.png)
 *Figure 5: Mean contribution of each feature to the raw score across all 98 repos. Dep score dominates, as intended. AI signals and usage contribute smaller but meaningful adjustments.*
 
 ![Soft Cap Mechanism](plots/viz_06_soft_cap.png)
