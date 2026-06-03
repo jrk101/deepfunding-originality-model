@@ -4,7 +4,7 @@
 
 The system predicts originality scores (0–1) for 98 Ethereum ecosystem repositories. It is composed of two models working in sequence:
 
-- **[`usage_scores.py`](models/usage_scores.py)** - clones all 98 repos, scans source code and measures how heavily each dependency is actually used. Outputs `usage_scores.csv`.
+- **[`usage_scores.py`](models/usage_scores.py)** - clones all 98 repos, scans source code and measures how heavily each dependency is actually used. Outputs [`usage_scores.csv`](data/intermediate/usage_scores.csv].
 - **[`originality.py`](models/originality.py)** - the main scoring model. Loads six CSV/JSON data sources, engineers features, runs a two-pass producer/consumer algorithm, classifies repos into categories, and computes a formula-based originality score tuned on 16 public jury anchors.
 
 ### The Core Intuition
