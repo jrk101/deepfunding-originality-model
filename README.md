@@ -183,7 +183,7 @@ For these, I assigned conservative manual proxy dep counts based on known ecosys
 
 These proxies were minimised and documented. I used the smallest defensible number rather than inflating scores. The Nimbus proxy (400) is the only aggressive one. But a full consensus client with Nim's package ecosystem genuinely has hundreds of logical dependencies even if they don't show up in automated scanning.
 
-![Category Distribution](plots/category_distribution_and_score_ranges.png)
+![Category Distribution](plots/viz_04_category_distribution.png)
 *Figure 4: Left - repo count per category. Right - score distribution per category with category caps overlaid. ZK systems and execution clients cluster near their cap; config/infra and data repos sit far below theirs.*
 
 ![Weight Contribution](plots/weight_contribution_breakdown.png)
