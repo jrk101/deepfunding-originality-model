@@ -207,9 +207,6 @@ These proxies were minimised and documented. I used the smallest defensible numb
 ![Final Tuned Weights](plots/viz_07_tuning_weights.png)
 *Figure 7: Final tuned weights from the grid search. The `dep_weight` (0.35) and `ai_wrapper_coef` (−0.10) are the two most-searched parameters. Everything else was fixed based on domain reasoning.*
 
-![Top and Bottom Repos](plots/viz_08_top_bottom_repos.png)
-*Figure 8: The 15 highest and 15 lowest-scoring repos. Top repos are ZK systems, execution clients, and crypto primitives. Bottom repos are data registries, config wrappers, and infrastructure templates.*
-
 ---
 
 ## 7. Challenges Encountered
@@ -230,6 +227,19 @@ These proxies were minimised and documented. I used the smallest defensible numb
 3. **Two-pass weighted producer scoring.** Being depended on by `geth` counts more than being depended on by a config script. The second pass re-weights inbound edges by the source repo's own producer score, creating a quality-adjusted centrality measure.
 4. **Source-code usage intensity.** Instead of just counting declared dependencies, I measured actual usage in source code like imports, aliases, and call frequency, weighted by file importance. This distinguishes real dependencies from stale or test-only ones.
 5. **Soft category caps instead of hard clips.** Repos can exceed their category ceiling; they just do so at a reduced rate. This preserves relative ordering within categories without clipping information.
+
+---
+
+## 9. Validation
+
+The final rankings aligned strongly with ecosystem intuition:
+
+- Execution clients, ZK systems, and cryptographic primitives consistently ranked near the top.
+- Config wrappers, deployment templates, and registry repositories ranked near the bottom.
+- Repositories heavily depended on by other infrastructure projects (e.g. ethers.js, geth, blst) scored significantly higher than orchestration or integration layers.
+
+![Top and Bottom Repos](plots/viz_08_top_bottom_repos.png)
+*Figure 8: The 15 highest and 15 lowest-scoring repos. Top repos are ZK systems, execution clients, and crypto primitives. Bottom repos are data registries, config wrappers, and infrastructure templates.*
 
 ---
 
