@@ -186,16 +186,16 @@ These proxies were minimised and documented. I used the smallest defensible numb
 ![Category Distribution](plots/viz_04_category_distribution.png)
 *Figure 4: Left - repo count per category. Right - score distribution per category with category caps overlaid. ZK systems and execution clients cluster near their cap; config/infra and data repos sit far below theirs.*
 
-![Weight Contribution](plots/weight_contribution_breakdown.png)
+![Weight Contribution](plots/viz_05_weight_contributionspng)
 *Figure 5: Mean contribution of each feature to the raw score across all 98 repos. Dep score dominates, as intended. AI signals and usage contribute smaller but meaningful adjustments.*
 
-![Soft Cap Mechanism](plots/soft_cap_mechanism.png)
+![Soft Cap Mechanism](plots/viz_06_soft_cap.png)
 *Figure 6: The soft cap mechanism. Rather than hard-clipping scores at the category ceiling, scores above the cap continue to grow at 40% of the normal rate. This preserves relative ordering within a category without any single repo hitting 1.0.*
 
-![Final Tuned Weights](plots/final_tuned_weights.png)
+![Final Tuned Weights](plots/viz_07_tuning_weights.png)
 *Figure 7: Final tuned weights from the grid search. The `dep_weight` (0.35) and `ai_wrapper_coef` (−0.10) are the two most-searched parameters. Everything else was fixed based on domain reasoning.*
 
-![Top and Bottom Repos](plots/top_and_bottom_repos.png)
+![Top and Bottom Repos](plots/viz_08_top_bottom_repos.png)
 *Figure 8: The 15 highest and 15 lowest-scoring repos. Top repos are ZK systems, execution clients, and crypto primitives. Bottom repos are data registries, config wrappers, and infrastructure templates.*
 
 ---
