@@ -4,16 +4,16 @@
 
 The system predicts originality scores (0–1) for 98 Ethereum ecosystem repositories. It is composed of two Python programs working in sequence:
 
-- **`usage_scores.py`** — clones all 98 repos, scans source code, and measures how heavily each dependency is actually used. Outputs `usage_scores.csv`.
-- **`originality.py`** — the main scoring engine. Loads six CSV/JSON data sources, engineers features, runs a two-pass producer/consumer algorithm, classifies repos into categories, and computes a formula-based originality score tuned on 9 public jury anchors.
+- **`usage_scores.py`** - clones all 98 repos, scans source code and measures how heavily each dependency is actually used. Outputs `usage_scores.csv`.
+- **`originality.py`** - the main scoring model. Loads six CSV/JSON data sources, engineers features, runs a two-pass producer/consumer algorithm, classifies repos into categories, and computes a formula-based originality score tuned on 16 public jury anchors.
 
 ### The Core Intuition
 
-Early in this project I made a mistake that immediately clarified everything. My first draft scored dependency count as a positive signal — more dependencies meant more interconnected, more important. Within minutes of running it, `scaffold-eth-2` and `ethereum-helm-charts` were near the top of the rankings.
+Early in this project I made a mistake that immediately clarified everything. My first draft scored dependency count as a positive signal, more dependencies meant more interconnected, more important. Within minutes of running it, `scaffold-eth-2` and `ethereum-helm-charts` were near the top of the rankings.
 
 That was obviously wrong. A Docker Compose file wrapping existing Ethereum clients is not more original than the execution client itself.
 
-Flipping the dependency signal — more outbound dependencies → lower originality — instantly produced rankings that made intuitive sense. That single inversion became the backbone of the whole model.
+Flipping the dependency signal - more outbound dependencies → lower originality. It instantly produced rankings that made intuitive sense. That single inversion became the backbone of the whole model.
 
 > **Central thesis:** Original work in Ethereum is infrastructure that others depend on, built without heavily depending on others. A cryptographic primitive like `noble-curves` that `ethers.js`, `viem`, and dozens of other projects rely on is more original than a scaffolding template that glues them together.
 
@@ -26,23 +26,23 @@ Flipping the dependency signal — more outbound dependencies → lower original
 
 ### A. Dependency Data Was Structurally Incomplete
 
-The first and biggest problem: the dependency graph from the competition data had huge gaps. Many repos returned zero dependencies. This wasn't because they had none — it was because GitHub's dependency graph only covers repos that have a dependency manifest in a format GitHub can parse. Rust repos using `Cargo.lock`, Go repos using `go.sum`, and anything using private registries were systematically underrepresented.
+The first and biggest problem: the dependency graph from the competition data had huge gaps. Many repos returned zero dependencies. This wasn't because they had none. it was because GitHub's dependency graph only covers repos that have a dependency manifest in a format GitHub can parse. Rust repos using `Cargo.lock`, Go repos using `go.sum`, and anything using private registries were systematically underrepresented.
 
 **What failed first**
 
-Initial versions of the model used the raw `depsdev_transitive_deps` column as the primary signal. This caused a cluster of Rust cryptographic libraries — `blst`, `gnark-crypto`, `noble-curves` — to score near-zero because they appeared to have no dependencies. They're actually foundational primitives that everyone else depends on.
+Initial versions of the model used the raw `depsdev_transitive_deps` column as the primary signal. This caused a cluster of Rust cryptographic libraries like `blst`, `gnark-crypto`, `noble-curves`  to score near-zero because they appeared to have no dependencies. They're actually foundational primitives that everyone else depends on.
 
 I addressed this in three ways:
 
-- **Solution 1 — deps.dev Integration.** The deps.dev dataset provided package-level dependency counts for ecosystems GitHub misses. I mapped repos to their npm, Cargo, Go, Maven, and PyPI packages and pulled transitive dep counts from deps.dev. This recovered signal for JavaScript/TypeScript and Java repos that the graph data had missed.
+- **Solution 1 - deps.dev Integration.** The deps.dev dataset provided package-level dependency counts for ecosystems GitHub misses. I mapped repos to their npm, Cargo, Go, Maven and PyPI packages and pulled transitive dep counts from deps.dev. This recovered signal for JavaScript/TypeScript and Java repos that the graph data had missed.
 
-- **Solution 2 — Cargo.lock Parsing.** Rust repos frequently returned zero from both GitHub's graph and deps.dev. The real dependency complexity lives in `Cargo.lock`, which is the fully resolved transitive dependency tree. I fetched raw `cargo_lock_data.csv` containing total package counts per repo. A Rust repo with 350 Cargo.lock packages actually has meaningful dependency complexity — it's just invisible without parsing the lock file.
+- **Solution 2 - Cargo.lock Parsing.** Rust repos frequently returned zero from both GitHub's graph and deps.dev. The real dependency complexity lives in `Cargo.lock`, which is the fully resolved transitive dependency tree. I fetched raw `cargo_lock_data.csv` containing total package counts per repo. A Rust repo with 350 Cargo.lock packages actually has meaningful dependency complexity.
 
-- **Solution 3 — go.sum Analysis.** Go module dependencies are similarly undercounted. The `go.sum` file records the full set of resolved modules. I used `go_sum_unique_modules` as a fallback dep count for Go repos where the primary graph data showed zero.
+- **Solution 3 - go.sum Analysis.** Go module dependencies are similarly undercounted. The `go.sum` file records the full set of resolved modules. I used `go_sum_unique_modules` as a fallback dep count for Go repos where the primary graph data showed zero.
 
 ### B. Ecosystems Measure Dependency Differently
 
-A Rust repo with 400 `Cargo.lock` entries is not comparable to a Java Maven project with 400 dependencies. Cargo package granularity is much finer — one logical library might be split across 20+ crates. Maven dependencies tend to be larger, more self-contained units.
+A Rust repo with 400 `Cargo.lock` entries is not comparable to a Java Maven project with 400 dependencies.
 
 I scaled each ecosystem's dep count before using it:
 
@@ -59,7 +59,7 @@ Whichever source had a non-zero value first was used. This produced a `unified_d
 
 **Age-Adjusted Dependency Scoring**
 
-A critical insight that took several model versions to implement correctly: old repos accumulate dependencies over time. A repo that's been actively developed for 10 years will have more dependencies than an equivalent 2-year-old repo — not because it's less original, but because it's been around longer to accumulate them.
+A critical insight that took several model versions to implement correctly: old repos accumulate dependencies over time. A repo that's been actively developed for 10 years will have more dependencies than an equivalent 2-year-old repo, not because it's less original, but because it's been around longer to accumulate them.
 
 Penalising `geth` (12 years old, 300+ dependencies) the same as a 6-month-old wrapper with the same count would be wrong. My solution:
 
@@ -67,12 +67,12 @@ Penalising `geth` (12 years old, 300+ dependencies) the same as a 6-month-old wr
 age_adj_dep_count = scaled_dep_count / log1p(min(age_years, 7.0))
 ```
 
-The cap at 7 years prevents runaway inflation for very old repos. Beyond 7 years, the age benefit is capped — this avoids any single repo getting an extreme advantage from longevity alone.
+The cap at 7 years prevents runaway inflation for very old repos. Beyond 7 years, the age benefit is capped. This avoids any single repo getting an extreme advantage from longevity alone.
 
 ![Age Dep Scoring](plots/viz_03_age_dep_scoring.png)
-*Figure 3: Left — the same raw dep count scores differently depending on repo age. Old repos get their dep count divided by `log1p(age)`, reducing the penalty. Right — the dep score is inverted: fewer (age-adjusted) dependencies → higher originality score.*
+*Figure 2: Left - the same raw dep count scores differently depending on repo age. Old repos get their dep count divided by `log1p(age)`, reducing the penalty. Right - the dep score is inverted: fewer (age-adjusted) dependencies → higher originality score.*
 
-The dependency signal ultimately feeds into the score as an inverted metric — more dependencies means the repo is more of a consumer of others' work, so the dep score component is:
+The dependency signal ultimately feeds into the score as an inverted metric. More dependencies means the repo is more of a consumer of others' work, so the dep score component is:
 
 ```
 dep_score = 1.0 - log1p(age_adj_dep_count) / log1p(max_age_adj_dep)
@@ -88,21 +88,21 @@ Structural signals alone can't detect what a repo actually does. A cryptographic
 
 ### Multi-LLM Ensemble Approach
 
-I used multiple models (DeepSeek, Llama, Mistral) and took ensemble consensus on binary signals. Using multiple models reduces the chance that one model's biases dominate — if two of three models agree a repo "implements from scratch," that's a stronger signal than a single model's verdict.
+I used multiple models (DeepSeek, Llama, Mistral) and took ensemble consensus on binary signals. Using multiple models reduces the chance that one model's biases dominate, if two of three models agree a repo "implements from scratch," that's a stronger signal than a single model's verdict.
 
 ### Signals Extracted
 
 **Positive Signals** (boost score)
-- `implements_from_scratch` — original implementation, not assembled
-- `defines_new_protocol` — introduces a novel protocol or spec
-- `has_novel_algorithms` — custom algorithms not lifted from elsewhere
-- `is_foundational_infrastructure` — other ecosystem work builds on this
+- `implements_from_scratch` - original implementation, not assembled
+- `defines_new_protocol` - introduces a novel protocol or spec
+- `has_novel_algorithms` - custom algorithms not lifted from elsewhere
+- `is_foundational_infrastructure` - other ecosystem work builds on this
 
 **Negative Signals** (penalise score)
-- `is_wrapper_or_integration` — primarily wraps existing tools
-- `is_template_or_scaffold` — boilerplate for others to fill in
-- `is_glue_code_or_middleware` — connects things without adding logic
-- `is_utility_library_only` — thin convenience layer
+- `is_wrapper_or_integration` - primarily wraps existing tools
+- `is_template_or_scaffold` - boilerplate for others to fill in
+- `is_glue_code_or_middleware` - connects things without adding logic
+- `is_utility_library_only` - thin convenience layer
 
 The negative signals were as important as the positive ones. Many repos that scored high on structural metrics (few deps, lots of code) turned out to be wrappers — the AI signals caught this where the formula would have otherwise missed it.
 
