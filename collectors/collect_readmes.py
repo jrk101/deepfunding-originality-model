@@ -1,19 +1,3 @@
-"""
-Deep Funding Level II — README Collector
-=========================================
-Fetches the README for each of the 98 repos and saves a clean
-plain-text excerpt to data/readme_data.csv.
-
-Uses GITHUB_TOKEN from environment for 5000 req/hr authenticated rate limit.
-Falls back to unauthenticated (60 req/hr) if token not set.
-
-Output: data/readme_data.csv
-  columns: repo_url, readme_found, readme_excerpt (800 chars, markdown stripped)
-
-Run:
-  python collect_readmes.py
-"""
-
 import csv, re, time, json, os, logging, sys, io, base64
 from pathlib import Path
 from urllib.request import urlopen, Request
