@@ -1,21 +1,3 @@
-"""
-Deep Funding Level II — deps.dev Dependency Collector (v2 - Fixed)
-====================================================================
-The /projects/ endpoint only works for repos that publish packages to registries.
-Most of our 98 repos are applications/frameworks, not published packages.
-
-This script uses a DIRECT MAPPING: repo → (ecosystem, package_name)
-and queries deps.dev by package name directly.
-
-For repos with no published package (C++, Shell, config-only repos),
-we fall back to the GitHub data we already have.
-
-Ecosystems supported by deps.dev:  NPM, CARGO, GO, PYPI, MAVEN, RUBYGEMS, NUGET
-
-Run: python collect_deps_dev.py
-Output: data/deps_dev_data.csv
-"""
-
 import csv
 import json
 import time
