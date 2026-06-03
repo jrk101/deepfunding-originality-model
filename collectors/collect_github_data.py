@@ -1,9 +1,3 @@
-"""
-Deep Funding Level II — GitHub Data Collector
-Collects comprehensive repo metadata for all 98 repos to build originality features.
-Handles rate limiting, retries, and fallbacks robustly.
-"""
-
 import os
 import csv
 import json
