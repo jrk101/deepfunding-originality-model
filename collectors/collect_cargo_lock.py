@@ -1,19 +1,3 @@
-"""
-Deep Funding Level II — Cargo.lock Dependency Counter
-=======================================================
-For Rust workspace repos that returned 0 deps from both GitHub parser 
-and deps.dev, we fetch the Cargo.lock file directly from raw GitHub.
-
-Cargo.lock contains ALL transitive dependencies (the full resolved dep tree).
-Counting [[package]] entries gives us the total transitive dep count.
-
-This is the most reliable signal for Rust projects.
-
-Run: python collect_cargo_lock.py
-Output: data/cargo_lock_data.csv
-No API key needed — fetches from raw.githubusercontent.com
-"""
-
 import csv
 import json
 import re
