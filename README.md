@@ -249,5 +249,4 @@ The final rankings aligned strongly with ecosystem intuition:
 - A repo can have few dependencies and still be doing unoriginal work (copy-pasting code instead of importing it). The model can't detect plagiarism or code similarity.
 - The usage scanner can detect that a repo imports `tokio` and calls `tokio::spawn`, but it can't tell whether that use is architecturally central or incidental. Dynamic analysis would give better signal but isn't feasible at this scale.
 - The LLM ensemble may have systematic biases toward or against certain kinds of repos.
-- Nim (used by `nimbus-eth2`, `status-im`) has almost no automated dependency tracking. OCaml, Haskell, and Elixir repos are similarly underserved. These required manual proxy estimates.
 - The jury anchors used for calibration are the publicly disclosed ones, which does not cover the full diversity of the 98 repos (e.g. there may be no anchor for the `data_repo` or `config_infra` categories).
